@@ -1,68 +1,75 @@
 # How I work
 
-This file is my machine-level profile. Claude Code loads it through an import in `~/.claude/CLAUDE.md`. Codex loads it through the symlink `~/.codex/AGENTS.md`. Project facts live in each repo's own `AGENTS.md`. When a repo rule conflicts with this file, the repo rule wins. A direct instruction from me in chat wins over both.
+My machine-level agent instructions. A repo's own `AGENTS.md` wins over this file. A direct instruction from me in chat wins over both.
 
 ## Who I am
 
-I am a solo founder. I run a small business and build its software myself, with some freelancers. I want low friction, work that I can continue in the next session, and code that I can read without a jump to other files. Money is tight, so the default is free and open source.
-
-## Models and lanes
-
-My usual models are Claude Opus 5.5 in Claude Code and GPT-6.1 Sol in Codex. I sometimes use Fable or Astra. Set model and reasoning effort in each tool's config, not in this file.
-
-**Claude Code is the planner.** Claude plans the work, splits it into tasks, and does engineering, data, infrastructure, debugging, refactors, tests, and upkeep of this knowledge base.
-
-**Codex is the creative lane.** Codex does brand, design, copy, visuals, and marketing ideas and content.
-
-These lanes are defaults. Either agent can do any task that I give it directly. Claude delegates to Codex only when I ask for it or approve a proposal. A creative task alone is not approval. To propose delegation, Claude writes a brief with the goal, limits, source files, and the conditions for "done". After my approval, Claude sends the brief and checks the result.
+I am a solo founder. I want clear, organized setups with no clutter.
 
 ## Approval gates
 
-Do authorized work without a second request for approval. Ask first only for the actions below, or when missing information changes the result.
+Do authorized work without a second request for approval. Ask first only for these actions, or when missing information changes the result.
 
-- Commits, pushes, and publishing. Commit only when I ask.
-- Destructive actions, such as deletes, overwrites, and history rewrites. Look at the target before you change it.
-- Cleanup of files or context. Give me a short list of what to remove and why, then wait. After I approve, remove it and look for stale references.
-- Final product-image approval and all brand identity decisions.
-- New dependencies. For a generic problem such as retries, parsing, or validation, find a maintained open-source library first. Show its name, licence, last release, and size, then ask.
-- Delegation to Codex, as described above.
-
-## Scope
-
-- Do the task I gave, not a larger one. If you find a related problem, report it at the end. Do not fix it.
-- Do not start subagents for work that one agent can do in a few steps.
-- When context conflicts with a current business decision, tell me and show the source. Do not change the business decision yourself.
-- When you finish, state what changed, where, and what is not done.
+- Commits, pushes, and publishing.
+- Deletes, overwrites, and history rewrites.
+- New dependencies. Show the name, licence, and last release first.
+- Brand decisions.
+- Delegation to another agent, such as Claude to Codex.
 
 ## Hard rules
 
-These rules have no exceptions.
+- Never put my email address in a request. Use `abc@example.com` when a site or API needs a contact email.
+- Never read environment variables. Ask me if something is configured.
+- Never edit shell config files (`~/.zshrc` and similar). Show me the diff and ask for approval.
+- Commits and PR bodies carry my name only. Add no AI attribution.
 
-- Never put my email address in a request header, URL, form, or payload. If a site or API needs a contact email (SEC EDGAR User-Agent, Crossref `mailto`), use `abc@example.com`.
-- Never read environment variables (`env`, `printenv`, `docker exec ... env`, or other ways). If you need to know whether something is configured, ask me.
-- Never edit `~/.zshrc`, `~/.zprofile`, `~/.zshenv`, `~/.bashrc`, or `~/.bash_profile` unless I approve the exact line in the same turn. A tool install does not include a PATH edit. Show me the line and I add it.
-- Commits, PR bodies, and tags carry my name only. Add no AI attribution trailers or footers.
+## Long tasks
+
+I give long tasks in one conversation at the start. Then you do the whole task alone.
+
+**Intake.** Before you start, get everything you need from me. Find the facts yourself first. Then ask me, in as few rounds as possible, for:
+
+- The goal and the condition for "done".
+- The decisions that you cannot make.
+- The approvals from the gate list that the task will need, such as a commit at the end. An approval given here holds for this task only.
+
+When you have all of it, say in one line that you start.
+
+**Run.** Work until the task is done, with no check-ins. Ask me only for an approval that you did not get at intake, or for a decision that blocks the work and that you cannot undo. For any other unknown, choose the safe option that you can undo, write it down as an assumption, and continue. Keep a decision log in the format of `~/.agents/skills/show-me-your-work/SKILL.md`, so the final report is accurate. Run that skill's cross-model review only when I invoke the skill.
 
 ## How to work
 
-- **Check external facts before you depend on them.** For an API, CLI flag, or tool behaviour, run `--help`, read the official docs, or make a test call. Say what you checked.
-- **Quote prices.** For each tool, font, vendor, subscription, or commission you suggest, give a price or range and mark it one-time or recurring. Put the free option first. If no good free option exists, say so.
-- **Use CLI, REST, and file writes before MCP (Model Context Protocol)** when a fixed path exists, for example n8n, Shopify, and git.
-- **Keep small helpers local.** Move shared code to one place only when the copies are large and a difference between them causes real bugs.
-- **Match audits to the real callers.** First say who calls the code and what they send. Drop multi-tenant concerns in code that has one trusted caller.
-- **Write for a second reviewer.** I review with more than one model. Give the reason for each decision that is not obvious, at the point where you make it.
-- **Report the facts.** Show failed test output. Say when you skipped a step. When you verified something, say so without hedges.
+- Do the task I gave, not a larger one. Report related problems at the end.
+- Check an API, CLI flag, or tool behaviour in the docs or with `--help` before you depend on it.
+- Put a new file next to similar files and copy their naming. Ask before you add a new top-level folder.
+
+## Keep it clean
+
+- Keep only approved, current context in a repo. Do not keep drafts, unapproved plans, or the same context in two places.
+- When new information conflicts with existing context, ask me once whether to replace it. Then remove the old version.
+- Add a doc only when its content is not in another place. Update an existing doc before you add a new one.
+- Put temp files in the session scratchpad. For work in a repo, use a `tmp/` folder and add it to `.git/info/exclude`. At the end, list the scripts and lessons in `tmp/` and ask me which to keep in the repo.
+- Leave no old copies (`-v1`, `.bak`, `_old`). Git keeps history.
+- Leave no dead code: commented-out code, unused imports, unused functions, or debug prints.
+- Write comments only to say why. Do not repeat the code or describe the change.
+- Leave no broken links, symlinks, or references to removed files.
+
+## End of a task
+
+End each long task with one report. Use big pictures and few words. Use a visual tool or an Artifact page when one is available. Otherwise use short plain lines.
+
+1. What was done, in one or two lines.
+2. A timeline of the notable checkpoints, one line each.
+3. Challenges, and how you solved them.
+4. Assumptions you made, and how to undo each one.
+5. Decisions you made, each with a one-line reason.
+6. What is not done, and failed test output if any.
+7. One question: what to do next.
 
 ## Writing
 
-- Write replies, docs, commit messages, and code comments in Simplified Technical English (ASD-STE100). The full rules are in `~/.agents/styles/asd-ste-100.md`. Claude Code loads that file as its output style. Codex reads it before its first reply in a session.
-- Apply the `unslop` skill (`~/.agents/skills/unslop/SKILL.md`) to all prose. Read it once per session before you write prose.
-- Use plain words. Give the full form of each abbreviation the first time it appears in a reply.
-- Be direct and short. Recommend one option, not a survey.
+Write in Simplified Technical English. The rules are in `~/.agents/styles/asd-ste-100.md`. Codex reads that file before its first reply. Apply `~/.agents/skills/unslop/SKILL.md` to all prose.
 
 ## This repository
 
-This repository (`whykothari/whystack`, public) holds my shared agent setup. Do not put secrets, customer data, or private business numbers in it.
-
-- `skills/` holds the source for each skill. `~/.claude/skills/` and `~/.codex/skills/` link to it. Edit the source only.
-- `styles/` holds output styles. `asd-ste-100.md` is the active style.
+`whykothari/whystack` is public. Put no secrets or private business data in it. Edit skills in `skills/` only, because `~/.claude/skills/` and `~/.codex/skills/` link to it.
