@@ -1,0 +1,39 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Secrets. Never commit credentials to a public repo.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local install state from the skills CLI
+.skill-lock.json
+
+# Per-machine agent settings and session data
+.claude/settings.local.json
+.claude/projects/
+.codex/sessions/
+*.local.md
+
+# Plugin and script build output
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+.venv/
+*.log
+
+# Scratch work
+tmp/
+scratch/
