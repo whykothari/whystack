@@ -1,0 +1,11 @@
+{{- $p := index .profiles .profile }}
+{{- if not $p.shell }}
+.zshrc
+.zprofile
+.zshenv
+.gitconfig
+{{- end }}
+{{- if not $p.prefs }}
+.claude/settings.json
+.codex/config.toml
+{{- end }}

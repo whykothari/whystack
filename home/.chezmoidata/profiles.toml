@@ -1,0 +1,23 @@
+# Each machine picks one profile at `chezmoi init`. These lists decide what it gets.
+
+[profiles.personal]
+packs = ["core", "improve", "research", "design"]
+shell = true  # .zshrc, .zprofile, .zshenv, .gitconfig
+prefs = true  # merge agents/claude/settings.json and agents/codex/config.toml
+mods = true
+brew = true
+
+[profiles.work]
+packs = ["core", "improve", "research"]
+shell = true
+prefs = true
+mods = true
+brew = true
+
+# Someone else's machine: agent files only, copied, with no chezmoi left behind.
+[profiles.guest]
+packs = ["core"]
+shell = false
+prefs = false
+mods = false
+brew = false

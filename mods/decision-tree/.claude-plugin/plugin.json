@@ -1,0 +1,18 @@
+{
+  "name": "decision-tree",
+  "version": "0.2.3",
+  "description": "When Claude ends a reply with a question, explains the choice in a side pane and lets you explore any option, or your own, in a real forked session",
+  "author": {
+    "name": "Yash Kothari"
+  },
+  "repository": "https://github.com/whykothari/whystack",
+  "license": "MIT",
+  "userConfig": {
+    "gateModel": {
+      "type": "string",
+      "title": "Gate model",
+      "description": "The small model that confirms a reply really asks you to decide something.",
+      "default": "haiku"
+    }
+  }
+}

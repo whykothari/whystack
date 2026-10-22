@@ -1,0 +1,120 @@
+model = "gpt-6.1-sol"
+model_reasoning_effort = "high"
+personality = "friendly"
+service_tier = "priority"
+
+[desktop]
+  agent-usage-reset-enabled = true
+  appearanceDarkCodeThemeId = "absolutely"
+  appearanceLightCodeThemeId = "absolutely"
+  appearanceTheme = "system"
+  conversationDetailMode = "STEPS_COMMANDS"
+  defaultTerminalLocation = "bottom"
+  dock-icon-preference = "app-default"
+  enabled-reasoning-efforts = ["low", "medium", "high", "xhigh"]
+  external-agent-import-sync-enabled = false
+  followUpQueueMode = "steer"
+  keepRemoteControlAwakeWhilePluggedIn = true
+  notifications-turn-mode = "always"
+  preventSleepWhileRunning = true
+  reduced-motion-preference = "on"
+  selected-avatar-id = "rocky"
+  show-context-window-usage = true
+  toys-confetti-enabled = false
+  usePointerCursors = true
+  worktree-keep-count = 2
+  [desktop.appearanceDarkChromeTheme]
+    accent = "#cc7d5e"
+    accentSource = "custom"
+    contrast = 60
+    ink = "#f9f9f7"
+    opaqueWindows = false
+    surface = "#2d2d2b"
+    [desktop.appearanceDarkChromeTheme.fonts]
+    [desktop.appearanceDarkChromeTheme.semanticColors]
+      diffAdded = "#00c853"
+      diffRemoved = "#ff5f38"
+      skill = "#cc7d5e"
+  [desktop.appearanceLightChromeTheme]
+    accent = "#cc7d5e"
+    contrast = 40
+    ink = "#2d2d2b"
+    opaqueWindows = true
+    surface = "#f9f9f7"
+    [desktop.appearanceLightChromeTheme.fonts]
+      code = "\"Geist Mono\", ui-monospace, \"SFMono-Regular\""
+      ui = "Geist, Inter"
+    [desktop.appearanceLightChromeTheme.semanticColors]
+      diffAdded = "#00c853"
+      diffRemoved = "#ff5f38"
+      skill = "#cc7d5e"
+
+[features]
+  js_repl = false
+  local_thread_store_compression = true
+  [features.network_proxy]
+    enabled = true
+    [features.network_proxy.domains]
+      "cdn.shopify.com" = "allow"
+      "shopify.com" = "allow"
+
+[plugins]
+  [plugins."browser@openai-bundled"]
+    enabled = true
+  [plugins."code-review@openai-bundled"]
+    enabled = true
+  [plugins."codex-app-tools@openai-bundled"]
+    enabled = true
+  [plugins."computer-use@openai-bundled"]
+    enabled = false
+  [plugins."cowork-plugin-management@claude-cowork"]
+    enabled = false
+  [plugins."design@claude-cowork"]
+    enabled = true
+  [plugins."documents@openai-primary-runtime"]
+    enabled = true
+  [plugins."engineering@claude-cowork"]
+    enabled = true
+  [plugins."finance@claude-cowork"]
+    enabled = false
+  [plugins."frontend-design@claude-plugins-official"]
+    enabled = true
+  [plugins."gmail@openai-curated"]
+    enabled = true
+  [plugins."google-calendar@openai-curated"]
+    enabled = false
+  [plugins."legal@claude-cowork"]
+    enabled = true
+  [plugins."marketing@claude-cowork"]
+    enabled = true
+  [plugins."operations@claude-cowork"]
+    enabled = false
+  [plugins."pdf-viewer@claude-cowork"]
+    enabled = true
+  [plugins."pdf@openai-primary-runtime"]
+    enabled = true
+  [plugins."presentations@openai-primary-runtime"]
+    enabled = true
+  [plugins."product-management@claude-cowork"]
+    enabled = false
+  [plugins."productivity@claude-cowork"]
+    enabled = true
+  [plugins."sales@claude-cowork"]
+    enabled = false
+  [plugins."shopify-plugin@shopify-ai-toolkit"]
+    enabled = true
+  [plugins."slack@openai-curated"]
+    enabled = false
+  [plugins."small-business@claude-cowork"]
+    enabled = false
+  [plugins."spreadsheets@openai-primary-runtime"]
+    enabled = true
+  [plugins."template-creator@openai-primary-runtime"]
+    enabled = true
+  [plugins."unified-computer-use@openai-bundled"]
+    enabled = true
+  [plugins."visualize@openai-bundled"]
+    enabled = true
+
+[sandbox_workspace_write]
+  network_access = true

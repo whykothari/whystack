@@ -1,0 +1,2 @@
+# pipx, and the whystack command
+export PATH="$PATH:$HOME/.local/bin"

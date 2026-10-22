@@ -1,0 +1,12 @@
+{{- $profile := promptChoiceOnce . "profile" "Profile for this machine" (list "personal" "work" "guest") -}}
+{{- $email := "30468316+whykothari@users.noreply.github.com" -}}
+{{- if eq $profile "work" -}}
+{{-   $email = promptStringOnce . "email" "Git email for work" -}}
+{{- end -}}
+sourceDir = {{ .chezmoi.workingTree | quote }}
+{{- /* Guest runs in one-shot mode, which deletes the clone, so links would break. */}}
+mode = {{ if eq $profile "guest" }}"file"{{ else }}"symlink"{{ end }}
+
+[data]
+profile = {{ $profile | quote }}
+email = {{ $email | quote }}

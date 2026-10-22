@@ -1,0 +1,332 @@
+#!/bin/bash
+# whystack: link agent files, sync this device with the repo, show the device changelog.
+# Written for the bash 3.2 that macOS ships.
+set -euo pipefail
+
+self="${BASH_SOURCE[0]}"
+[ -L "$self" ] && self="$(readlink "$self")"
+REPO="$(cd "$(dirname "$self")/.." && pwd -P)"
+STATE="${XDG_STATE_HOME:-$HOME/.local/state}/whystack"
+CHANGELOG="$STATE/changelog"
+IGNORE="$STATE/ignore"
+WATCHED="$HOME/.agents/skills $HOME/.claude/skills $HOME/.claude/output-styles"
+
+say() { printf 'whystack: %s\n' "$*"; }
+
+ask() { # ask <question> <answers, for example "a/i/s">
+	local reply
+	read -r -p "$1 [$2] " reply </dev/tty
+	printf '%s' "$reply"
+}
+
+part_of() {
+	case "$1" in
+		*agents/skills/* | */.agents/skills/* | */.claude/skills/*) echo skills ;;
+		*agents/styles/* | */output-styles/*) echo styles ;;
+		*agents/claude/* | */.claude/*) echo claude ;;
+		*agents/codex/* | */.codex/*) echo codex ;;
+		*agents/AGENTS.md) echo agents ;;
+		*home/dot_z* | */.z*) echo zsh ;;
+		*gitconfig*) echo git ;;
+		*Brewfile* | brew:*) echo brew ;;
+		*mods/* | *.claude-plugin/*) echo mods ;;
+		*) echo repo ;;
+	esac
+}
+
+short() { # short <path>: path inside the repo, or inside home
+	case "$1" in
+		"$REPO"/*) echo "${1#"$REPO"/}" ;;
+		*) echo "~/${1#"$HOME"/}" ;;
+	esac
+}
+
+log_change() { # log_change <path> <direction> <note>
+	mkdir -p "$STATE"
+	printf '%s\t%s\t%s\t%s\t%s\n' "$(date '+%Y-%m-%d %H:%M')" "$(part_of "$1")" "$(short "$1")" "$2" "$3" >>"$CHANGELOG"
+}
+
+# --- link ---------------------------------------------------------------
+
+place() { # place <source> <target>: link or copy, and move a real file out of the way first
+	local src="$1" dst="$2"
+	[ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ] && return 0
+	mkdir -p "$(dirname "$dst")"
+	if [ -L "$dst" ]; then
+		rm "$dst"
+	elif [ -e "$dst" ]; then
+		local backup
+		backup="$STATE/backup/$(date +%Y%m%d-%H%M%S)/${dst#"$HOME"/}"
+		mkdir -p "$(dirname "$backup")"
+		mv "$dst" "$backup"
+		say "moved $dst to $backup"
+	fi
+	if [ "$MODE" = link ]; then ln -s "$src" "$dst"; else cp -R "$src" "$dst"; fi
+}
+
+cmd_link() {
+	MODE=link
+	local packs=""
+	while [ $# -gt 0 ]; do
+		case "$1" in
+			--mode) MODE="$2"; shift 2 ;;
+			--packs) packs="$2"; shift 2 ;;
+			*) say "unknown option $1"; exit 2 ;;
+		esac
+	done
+
+	local want="" pack skill name style
+	add() { place "$1" "$2"; want="$want|$2|"; }
+
+	add "$REPO/agents/AGENTS.md" "$HOME/.agents/AGENTS.md"
+	add "$REPO/agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
+	add "$REPO/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+	add "$REPO/agents/styles" "$HOME/.agents/styles"
+	for style in "$REPO"/agents/styles/*.md; do
+		add "$style" "$HOME/.claude/output-styles/$(basename "$style")"
+	done
+	for pack in $packs; do
+		for skill in "$REPO/agents/skills/$pack"/*/; do
+			skill="${skill%/}"
+			name="$(basename "$skill")"
+			case "$want" in *"|$HOME/.agents/skills/$name|"*)
+				say "two packs have a skill named $name"; exit 1 ;;
+			esac
+			# Codex reads ~/.agents/skills. Claude reads ~/.claude/skills.
+			add "$skill" "$HOME/.agents/skills/$name"
+			add "$skill" "$HOME/.claude/skills/$name"
+		done
+	done
+	[ "$MODE" = link ] && add "$REPO/bin/whystack" "$HOME/.local/bin/whystack"
+
+	# Remove links that whystack made before but no longer wants, and broken links.
+	local dir entry target
+	for dir in $WATCHED "$HOME/.codex/skills"; do
+		[ -d "$dir" ] || continue
+		for entry in "$dir"/*; do
+			[ -L "$entry" ] || continue
+			case "$want" in *"|$entry|"*) continue ;; esac
+			target="$(readlink "$entry")"
+			case "$target" in
+				"$REPO"/* | *.agents/skills/*) rm "$entry" ;;
+				*) [ -e "$entry" ] || rm "$entry" ;;
+			esac
+		done
+	done
+}
+
+# --- sync ---------------------------------------------------------------
+
+profile_packs() {
+	chezmoi execute-template '{{ (index .profiles .profile).packs | join " " }}'
+}
+
+# Print the device's values for only the keys that the repo prefs set, as sorted JSON.
+pick='def pick($p): if ($p | type) == "object" and type == "object"
+	then . as $d | reduce ($p | keys[]) as $k ({}; .[$k] = (if $d | has($k) then $d[$k] | pick($p[$k]) else $p[$k] end))
+	else . end; pick($prefs)'
+
+as_json() { # as_json <file>: JSON or TOML file as JSON
+	case "$1" in
+		*.toml) chezmoi execute-template "{{ include \"$1\" | fromToml | toJson }}" ;;
+		*) cat "$1" ;;
+	esac
+}
+
+check_prefs() { # check_prefs <repo prefs file> <device file>
+	local prefs="$1" device="$2" want have answer
+	[ -f "$device" ] || return 0
+	want="$(as_json "$prefs" | jq -S .)"
+	have="$(as_json "$device" | jq -S --argjson prefs "$want" "$pick")"
+	[ "$want" = "$have" ] && return 0
+	echo
+	say "an app changed $device:"
+	diff -u <(printf '%s\n' "$want") <(printf '%s\n' "$have") | tail -n +3 || true
+	answer="$(ask "Keep the new values in the repo, undo them on this device, or skip?" "k/u/s")"
+	case "$answer" in
+		k)
+			case "$prefs" in
+				*.toml) chezmoi execute-template "{{ \`$have\` | fromJson | toToml }}" >"$prefs" ;;
+				*) printf '%s\n' "$have" | jq --indent 2 . >"$prefs" ;;
+			esac
+			log_change "$prefs" "device->repo" "kept app change"
+			;;
+		u)
+			chezmoi apply --force "$device"
+			log_change "$device" "repo->device" "undid app change"
+			;;
+	esac
+}
+
+take() { # take <device path> <repo path>: move the content into the repo
+	if [ -e "$2" ]; then say "$2 exists already, skipped"; return 1; fi
+	if [ -L "$1" ]; then cp -RL "$1" "$2" && rm "$1"; else mv "$1" "$2"; fi
+}
+
+check_new() {
+	local dir entry name answer packs pack
+	packs="$(profile_packs)"
+	for dir in $WATCHED; do
+		[ -d "$dir" ] || continue
+		for entry in "$dir"/*; do
+			[ -e "$entry" ] || continue
+			# claude.ai owns ~/.claude/skills/synced.
+			[ "$entry" = "$HOME/.claude/skills/synced" ] && continue
+			case "$(realpath "$entry")" in "$REPO"/*) continue ;; esac
+			grep -qxF "$entry" "$IGNORE" 2>/dev/null && continue
+			name="$(basename "$entry")"
+			echo
+			say "$entry is on this device but not in the repo"
+			answer="$(ask "Add it to the repo, ignore it on this device, or skip?" "a/i/s")"
+			case "$answer" in
+				a)
+					case "$dir" in
+						*output-styles) take "$entry" "$REPO/agents/styles/$name" || continue ;;
+						*)
+							pack="$(ask "Which pack? ($(ls "$REPO/agents/skills" | tr '\n' ' '))" "pack")"
+							[ -d "$REPO/agents/skills/$pack" ] || { say "no pack named $pack, skipped"; continue; }
+							take "$entry" "$REPO/agents/skills/$pack/$name" || continue
+							;;
+					esac
+					log_change "$entry" "device->repo" "added"
+					;;
+				i)
+					mkdir -p "$STATE"
+					printf '%s\n' "$entry" >>"$IGNORE"
+					log_change "$entry" "none" "ignored on this device"
+					;;
+			esac
+		done
+	done
+	cmd_link --mode link --packs "$packs"
+	check_brew
+}
+
+check_brew() {
+	command -v brew >/dev/null || return 0
+	local extra top item answer section
+	# `brew bundle cleanup` without --force only lists what is installed but not in the Brewfile.
+	extra="$(HOMEBREW_WHYSTACK_PROFILE="$(chezmoi execute-template '{{ .profile }}')" \
+		brew bundle cleanup --file="$REPO/Brewfile" 2>/dev/null |
+		awk '/^Would uninstall (formulae|casks):/ { on = 1; next } /^Would/ { on = 0 } on' | tr ' ' '\n' | grep . || true)"
+	# Ask only about packages installed on purpose, not their dependencies.
+	top="$( { brew leaves; brew list --cask; } 2>/dev/null)"
+	extra="$(for item in $extra; do printf '%s\n' "$top" | grep -qx "${item##*/}" && echo "$item"; done || true)"
+	for item in $extra; do
+		grep -qxF "brew:$item" "$IGNORE" 2>/dev/null && continue
+		echo
+		say "brew package $item is installed but not in the Brewfile"
+		answer="$(ask "Add it for every profile, for this profile only, remove it from this Mac, ignore it, or skip?" "a/p/r/i/s")"
+		case "$answer" in
+			r) brew uninstall "$item" && log_change "brew:$item" "repo->device" "uninstalled"; continue ;;
+			a) section="shared" ;;
+			p) section="$(chezmoi execute-template '{{ .profile }}')" ;;
+			i) mkdir -p "$STATE"; printf 'brew:%s\n' "$item" >>"$IGNORE"; continue ;;
+			*) continue ;;
+		esac
+		add_to_brewfile "$item" "$section"
+		log_change "brew:$item" "device->repo" "added to Brewfile ($section)"
+	done
+}
+
+add_to_brewfile() { # add_to_brewfile <name> <shared|personal|work>
+	local kind=brew
+	brew list --cask "$1" >/dev/null 2>&1 && kind=cask
+	awk -v line="$kind \"$1\"" -v section="$2" '
+		section == "shared" && /^if profile/ && !done { print line; print ""; done = 1 }
+		$0 == "if profile == \"" section "\"" { inside = 1 }
+		inside && /^end/ && !done { print "  " line; done = 1; inside = 0 }
+		{ print }
+	' "$REPO/Brewfile" >"$REPO/Brewfile.new"
+	mv "$REPO/Brewfile.new" "$REPO/Brewfile"
+}
+
+commit_local() {
+	local files file answer msg parts
+	files="$(git -C "$REPO" status --porcelain --no-renames --untracked-files=all | cut -c4-)"
+	[ -n "$files" ] || return 0
+	echo
+	say "files changed in the repo on this device:"
+	git -C "$REPO" status --short
+	answer="$(ask "Commit all, review each, or skip?" "c/r/s")"
+	case "$answer" in
+		c) git -C "$REPO" add -A ;;
+		r)
+			for file in $files; do
+				git -C "$REPO" --no-pager diff --stat -- "$file" 2>/dev/null || true
+				case "$(ask "$file: commit, undo, or skip?" "c/u/s")" in
+					c) git -C "$REPO" add -- "$file" ;;
+					u)
+						[ "$(ask "Undo deletes your edit to $file. Sure?" "y/n")" = y ] || continue
+						git -C "$REPO" restore -- "$file" 2>/dev/null || { mkdir -p "$STATE/backup"; mv "$REPO/$file" "$STATE/backup/"; }
+						log_change "$REPO/$file" "repo->device" "undid local edit"
+						;;
+				esac
+			done
+			;;
+		*) return 0 ;;
+	esac
+	files="$(git -C "$REPO" diff --cached --name-only)"
+	[ -n "$files" ] || return 0
+	parts="$(for file in $files; do part_of "$file"; done | sort -u | tr '\n' ' ')"
+	msg="Sync $(hostname -s): ${parts% }"
+	git -C "$REPO" commit -q -m "$msg"
+	for file in $files; do log_change "$REPO/$file" "device->repo" "committed"; done
+}
+
+pull_and_apply() {
+	local before file
+	before="$(git -C "$REPO" rev-parse HEAD)"
+	git -C "$REPO" pull -q --rebase --autostash
+	for file in $(git -C "$REPO" diff --name-only "$before" HEAD); do
+		log_change "$REPO/$file" "repo->device" "pulled"
+	done
+	git -C "$REPO" push -q
+	chezmoi apply
+	say "in sync"
+}
+
+cmd_sync() {
+	check_prefs "$REPO/agents/claude/settings.json" "$HOME/.claude/settings.json"
+	check_prefs "$REPO/agents/codex/config.toml" "$HOME/.codex/config.toml"
+	check_new
+	commit_local
+	pull_and_apply
+}
+
+# --- status and log -----------------------------------------------------
+
+cmd_status() {
+	local n
+	n="$(git -C "$REPO" status --porcelain | wc -l | tr -d ' ')"
+	[ "$n" = 0 ] && { [ "${1:-}" = --quiet ] || say "no local changes"; return 0; }
+	say "$n files changed on this device. Run: whystack sync"
+}
+
+cmd_log() {
+	[ -f "$CHANGELOG" ] || { say "no changes logged on this device yet"; return 0; }
+	if [ -n "${1:-}" ]; then
+		awk -F '\t' -v part="$1" '$2 == part' "$CHANGELOG"
+	else
+		cat "$CHANGELOG"
+	fi | column -t -s "$(printf '\t')"
+}
+
+usage() {
+	cat <<'EOF'
+Usage: whystack <command>
+
+  sync           Check this device for changes, commit them, pull, push, and apply.
+  status         Count the files changed on this device. --quiet prints nothing when clean.
+  log [part]     Show the changelog of this device. Parts: agents skills styles claude codex zsh git brew mods.
+  link           Link the agent files. chezmoi runs this for you.
+EOF
+}
+
+case "${1:-}" in
+	sync) cmd_sync ;;
+	status) shift; cmd_status "$@" ;;
+	log) shift; cmd_log "$@" ;;
+	link) shift; cmd_link "$@" ;;
+	*) usage ;;
+esac

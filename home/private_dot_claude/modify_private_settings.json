@@ -1,0 +1,11 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Claude also writes this file, so set only the keys in agents/claude/settings.json. */ -}}
+{{- $current := .chezmoi.stdin | default "{}" | fromJson -}}
+{{- $prefs := joinPath .chezmoi.workingTree "agents/claude/settings.json" | include | fromJson -}}
+{{- $_ := setValueAtPath "extraKnownMarketplaces.whystack.source" (dict "source" "directory" "path" .chezmoi.workingTree) $prefs -}}
+{{- $merged := mergeOverwrite (deepCopy $current) $prefs -}}
+{{- if eq (toJson $merged) (toJson $current) -}}
+{{ .chezmoi.stdin }}
+{{- else -}}
+{{ toPrettyJson "  " $merged }}
+{{ end -}}

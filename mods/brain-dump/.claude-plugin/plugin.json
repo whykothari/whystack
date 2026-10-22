@@ -1,0 +1,14 @@
+{
+  "name": "brain-dump",
+  "version": "0.1.0",
+  "description": "Offers to turn a long, loose prompt into a brief (Goal, Context, Limits, Done when), with up to three questions on what it leaves open.",
+  "author": {
+    "name": "Yash Kothari"
+  },
+  "keywords": [
+    "mods",
+    "prompt"
+  ],
+  "repository": "https://github.com/whykothari/whystack",
+  "license": "MIT"
+}

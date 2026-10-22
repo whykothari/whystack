@@ -1,0 +1,11 @@
+{{- if (index .profiles .profile).brew -}}
+#!/bin/bash
+# chezmoi runs this again when the Brewfile changes:
+# {{ joinPath .chezmoi.workingTree "Brewfile" | include | sha256sum }}
+set -eu
+if ! command -v brew >/dev/null; then
+	echo "whystack: install Homebrew from https://brew.sh, then run chezmoi apply again"
+	exit 0
+fi
+HOMEBREW_WHYSTACK_PROFILE={{ .profile | quote }} brew bundle --no-upgrade --file={{ joinPath .chezmoi.workingTree "Brewfile" | quote }}
+{{ end -}}

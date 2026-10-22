@@ -1,0 +1,10 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Codex also writes this file, so set only the keys in agents/codex/config.toml. */ -}}
+{{- $current := .chezmoi.stdin | fromToml -}}
+{{- $prefs := joinPath .chezmoi.workingTree "agents/codex/config.toml" | include | fromToml -}}
+{{- $merged := mergeOverwrite (deepCopy $current) $prefs -}}
+{{- if eq (toJson $merged) (toJson $current) -}}
+{{ .chezmoi.stdin }}
+{{- else -}}
+{{ toToml $merged }}
+{{- end -}}

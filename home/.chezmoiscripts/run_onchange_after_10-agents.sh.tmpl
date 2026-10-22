@@ -1,0 +1,11 @@
+#!/bin/bash
+{{- $p := index .profiles .profile }}
+# chezmoi runs this again when the profile, a skill, or a style changes:
+# {{ .profile }}
+{{- range $p.packs }}
+# {{ . }}: {{ joinPath $.chezmoi.workingTree "agents/skills" . "*" | glob | join " " }}
+{{- end }}
+# styles: {{ joinPath .chezmoi.workingTree "agents/styles/*" | glob | join " " }}
+exec {{ joinPath .chezmoi.workingTree "bin/whystack" | quote }} link \
+	--mode {{ if eq .profile "guest" }}copy{{ else }}link{{ end }} \
+	--packs {{ $p.packs | join " " | quote }}

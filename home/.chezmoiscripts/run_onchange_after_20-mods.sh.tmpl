@@ -1,0 +1,17 @@
+{{- if (index .profiles .profile).mods -}}
+#!/bin/bash
+# chezmoi runs this again when the mod list changes:
+# {{ joinPath .chezmoi.workingTree ".claude-plugin/marketplace.json" | include | sha256sum }}
+set -eu
+if ! command -v claude >/dev/null; then
+	echo "whystack: Claude Code is not installed, so no mods were installed"
+	exit 0
+fi
+claude plugin marketplace add {{ .chezmoi.workingTree | quote }} >/dev/null 2>&1 || claude plugin marketplace update whystack >/dev/null
+{{- $enabled := (joinPath .chezmoi.workingTree "agents/claude/settings.json" | include | fromJson).enabledPlugins }}
+{{- range $id, $on := $enabled }}
+{{- if and $on (hasSuffix "@whystack" $id) }}
+claude plugin install {{ $id }} --scope user
+{{- end }}
+{{- end }}
+{{ end -}}

@@ -37,3 +37,6 @@ __pycache__/
 # Scratch work
 tmp/
 scratch/
+
+# Claude Code writes editor types here when it loads a mod.
+mods/*/.claude-plugin/types/

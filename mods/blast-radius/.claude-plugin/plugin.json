@@ -1,0 +1,15 @@
+{
+  "name": "blast-radius",
+  "version": "0.2.0",
+  "description": "Holds risky shell commands (rm -rf, find -delete, xargs rm, git reset --hard, git clean, force push, migrations, also inside bash -c and sudo) and shows what they would change, with Proceed and Cancel buttons.",
+  "author": {
+    "name": "Yash Kothari"
+  },
+  "keywords": [
+    "mods",
+    "safety",
+    "git"
+  ],
+  "repository": "https://github.com/whykothari/whystack",
+  "license": "Apache-2.0"
+}

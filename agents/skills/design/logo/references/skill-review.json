@@ -1,0 +1,104 @@
+{
+  "skill": "../SKILL.md",
+  "skill_sha256": "002b2aa25debdc461320008de0999582ade6500ab64160545255ca0af5522a74",
+  "words_including_frontmatter": 489,
+  "helper": "../scripts/render_board.py",
+  "helper_sha256": "b2020315ecbec70b5d24399a205b58fcfcadecc994c24fc7694b7a532bb61532",
+  "reviewer": "Claude Opus 5.5",
+  "model_id": "claude-opus-5-5",
+  "verdict": "PASS",
+  "material_findings_open": 0,
+  "reviewer_summary": "No material problems after cleanup. All ten workflow cases handled correctly. Project-specific rules and assets are read from the project rather than bundled with the skill.",
+  "case_scope": "Reasoning checks. skill_pass measures correct handling, including rejection of flawed input assets.",
+  "cases": [
+    {
+      "id": "broaden-unselected",
+      "skill_pass": true
+    },
+    {
+      "id": "refine-selected",
+      "skill_pass": true
+    },
+    {
+      "id": "existing-angular",
+      "skill_pass": true
+    },
+    {
+      "id": "new-brand",
+      "skill_pass": true
+    },
+    {
+      "id": "exact-wordmark",
+      "skill_pass": true
+    },
+    {
+      "id": "comparison-board",
+      "skill_pass": true
+    },
+    {
+      "id": "small-icon",
+      "skill_pass": true
+    },
+    {
+      "id": "transparent-shadow",
+      "skill_pass": true
+    },
+    {
+      "id": "whykothari-reuse",
+      "skill_pass": true
+    },
+    {
+      "id": "brief-override",
+      "skill_pass": true
+    }
+  ],
+  "actual_checks": {
+    "cli_tests_passed": 5,
+    "source_embedding": {
+      "svg": 4,
+      "png": 2
+    },
+    "source_files_unchanged": true,
+    "existing_output_preserved": true,
+    "invalid_spec_rejected_without_partial_file": true,
+    "literal_labels_preserved": true,
+    "long_labels_wrap": true,
+    "status_configurable": true,
+    "live_render_count": 2,
+    "live_render_scope": "Gate and Pivot draft marks, generated separately from geometry references and a verbal material description.",
+    "native_comparison_and_long_label_previews_inspected": true,
+    "yaml": "Ruby standard-library parser passed. No new dependencies installed.",
+    "bundled_brand_assets": 0,
+    "project_asset_hashes_verified": 24,
+    "helper_unchanged_since_cli_tests": true
+  },
+  "asset_checks": [
+    {
+      "asset": "Pivot draft render",
+      "status": "REVISE",
+      "finding": "The vector has accidental kinks that the render smooths. It is not evidence of exact geometry.",
+      "source": "Claude visual comparison",
+      "production_approved": false
+    }
+  ],
+  "review_fixes": [
+    "Long labels now wrap and layout expands.",
+    "Board status is configurable, defaulting to DRAFT CONCEPTS.",
+    "Named user choices override broad exploration; assistant recommendations are not selections.",
+    "Inspect flat outlines and reject unintended contour changes."
+  ],
+  "limits": [
+    "Ten workflow cases are reasoning checks, not ten new image generations.",
+    "The helper embeds source bytes unchanged. That does not prove generated artwork matches its source geometry.",
+    "Claude inspected previews and code. Local scripts ran tests and computed hashes.",
+    "Raw draft renders remain approximate. The Pivot draft failed its visual geometry check.",
+    "New renders need visual review. No editable 3D scene is supplied."
+  ],
+  "cleanup": {
+    "skill_files_retained": 3,
+    "project_style_guide_separate": true,
+    "duplicate_assets_removed": 24,
+    "project_asset_bytes_unchanged": true,
+    "local_links_resolve": true
+  }
+}

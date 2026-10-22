@@ -1,0 +1,55 @@
+{
+  "name": "whystack",
+  "description": "Yash Kothari's Claude Code mods",
+  "owner": {
+    "name": "Yash Kothari",
+    "url": "https://github.com/whykothari"
+  },
+  "plugins": [
+    {
+      "name": "crabwatch",
+      "source": "./mods/crabwatch",
+      "description": "Progress bar above the prompt and a live panel of subagents with model, context, cost and time."
+    },
+    {
+      "name": "filetree",
+      "source": "./mods/filetree",
+      "description": "File tree of the working folder with git status, lines changed, and a shimmer on files Claude reads or writes."
+    },
+    {
+      "name": "cache-tax",
+      "source": "./mods/cache-tax",
+      "description": "Keeps the one-hour prompt cache warm during breaks and stops a cold send once with its estimated rewrite cost. Warming pings cost tokens."
+    },
+    {
+      "name": "blast-radius",
+      "source": "./mods/blast-radius",
+      "description": "Holds risky shell commands (rm -rf, find -delete, xargs rm, git reset --hard, git clean, force push, migrations, also inside bash -c and sudo) and shows what they would change, with Proceed and Cancel buttons."
+    },
+    {
+      "name": "replay-theater",
+      "source": "./mods/replay-theater",
+      "description": "Step through the file edits Claude made in the last turn, one diff at a time, with /replay."
+    },
+    {
+      "name": "brain-dump",
+      "source": "./mods/brain-dump",
+      "description": "Offers to turn a long, loose prompt into a brief (Goal, Context, Limits, Done when), with up to three questions on what it leaves open."
+    },
+    {
+      "name": "helper-desk",
+      "source": "./mods/helper-desk",
+      "description": "A task bar above the prompt that fills as Claude's to-do list is done, and a Helpers pane with one live card per subagent (/helpers)."
+    },
+    {
+      "name": "decision-tree",
+      "source": "./mods/decision-tree",
+      "description": "When Claude ends a reply with a question, a side pane explains the choice, recommendation first, and lets you try any option, or your own, in a forked session."
+    },
+    {
+      "name": "diagram-pane",
+      "source": "./mods/diagram-pane",
+      "description": "A side pane that keeps every diagram Claude draws, a live map of the work, and lets you go into boxes and change them."
+    }
+  ]
+}
