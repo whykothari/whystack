@@ -54,7 +54,6 @@ brew "docker-buildx"
 brew "docker-compose"
 brew "docker-credential-helper"
 brew "lazydocker"
-brew "oxker"
 
 # Build tools for the Tauri and iOS apps
 brew "cmake"
