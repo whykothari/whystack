@@ -35,7 +35,7 @@ The work of planning demand, buying, making, storing, and moving goods, and of r
 |---|---|---|---|
 | RFQ (request for quotation) | Formal ask for prices on a defined item | The spec is fixed and price decides | core |
 | RFP (request for proposal) | Formal ask for solutions and prices on a need | Suppliers must propose how to meet the need | core |
-| PO (purchase order) | Buyer's binding order to a supplier | You commit to buy | core |
+| PO (purchase order) | Buyer's formal order; binding once the supplier accepts | You commit to buy | core |
 | MOQ (minimum order quantity) | Smallest order a supplier will accept | You size orders or negotiate terms | core |
 | Landed cost | Full unit cost at your door, with freight and duty | You compare suppliers or set prices | core |
 | TCO (total cost of ownership) | All costs of a buy over its whole life | You compare offers beyond unit price | core |
@@ -51,10 +51,10 @@ The work of planning demand, buying, making, storing, and moving goods, and of r
 |---|---|---|---|
 | BOM (bill of materials) | Structured list of parts and amounts in a product | You cost, plan, or build a product | core |
 | Lead time | Time from order or start until the item is ready | You plan when to order or start | core |
-| Cycle time | Time one unit takes through a step or process | You measure process speed | core |
+| Cycle time | Time per unit at a step; some mean total process time | You measure process speed | core |
 | Takt time | Available time divided by demand; the needed pace | You set line pace to match demand | core |
 | Design vs effective capacity | Maximum output, versus output under real conditions | You plan load or judge a capacity gap | core |
-| Utilization | Share of available capacity actually used | You check how loaded a resource is | core |
+| Utilization | Actual output or run time, divided by available capacity | You check how loaded a resource is | core |
 | Bottleneck | The step that limits total process output | You decide where to add capacity | core |
 | WIP (work in process) | Items started but not finished | You track flow or tied-up cash | core |
 | Yield | Share of good output from total input | You track losses in a process | core |
@@ -70,12 +70,12 @@ The work of planning demand, buying, making, storing, and moving goods, and of r
 | Safety stock | Extra stock held against demand and supply surprises | You set buffers for variability | core |
 | Reorder point (ROP) | Stock level that triggers a new order | You set when to replenish | core |
 | EOQ (economic order quantity) | Order size that minimizes ordering plus holding cost | You set how much to order | core |
-| ABC analysis | Ranking items by value to set control effort | You decide which items get tight control | core |
+| ABC analysis | Ranking items by annual usage value to set control effort | You decide which items get tight control | core |
 | Cycle counting | Counting a few items often instead of yearly | You keep stock records accurate | core |
 | Inventory turnover | COGS divided by average inventory | You judge how fast stock moves | core |
-| DOH (days of inventory on hand) | How many days current stock will last | You check stock coverage | core |
-| Service level | Target chance of not running out in a cycle | You set safety stock policy | expert |
-| Fill rate | Share of demand shipped from stock right away | You measure stock availability | core |
+| DOH (days of inventory on hand) | On-hand stock divided by average daily demand (or COGS) | You check stock coverage | core |
+| Service level | Target chance of no stockout per cycle (cycle service level) | You set safety stock policy | core |
+| Fill rate | Share of demand (units, lines, or orders) shipped from stock immediately | You measure stock availability | core |
 | Carrying cost | Yearly cost to hold stock, as share of value | You weigh stock levels against cost | core |
 | VMI (vendor managed inventory) | Supplier watches and refills the buyer's stock | You shift replenishment to the supplier | expert |
 | E&O (excess and obsolete inventory) | Stock above need or no longer sellable | You plan write-downs or clear-outs | expert |
@@ -93,11 +93,11 @@ The work of planning demand, buying, making, storing, and moving goods, and of r
 | FCL / LCL (full container load, less than container load) | Whole ocean container, or shared container space | You choose an ocean freight mode | core |
 | Freight forwarder | Firm that arranges transport for shippers | You ship across borders or modes | core |
 | Customs broker | Licensed agent who clears goods through customs | You import goods | core |
-| BOL (bill of lading) | Carrier's receipt, contract of carriage, and title document | You ship, claim, or release cargo | core |
+| BOL (bill of lading) | Carrier's receipt and contract of carriage; title document only if negotiable | You ship, claim, or release cargo | core |
 | Incoterms 2020 | ICC rules for who pays and bears risk in trade | You write a sales or purchase contract | core |
-| EXW / FOB / DDP (ex works, free on board, delivered duty paid) | Buyer does most, risk passes at ship, seller does all | You name the Incoterms rule in a quote | core |
-| HS code (Harmonized System code) | Global product code that sets import duty | You classify goods for customs | expert |
-| Demurrage and detention | Fees for keeping containers past free time | You plan port pickups and returns | expert |
+| EXW / FOB / DDP (ex works, free on board, delivered duty paid) | Buyer does most; risk passes once on board; seller does all | You name the Incoterms rule in a quote | core |
+| HS code (Harmonized System code) | International product classification code that customs uses to apply duty | You classify goods for customs | expert |
+| Demurrage and detention | Fees past free time: demurrage at the terminal, detention outside | You plan port pickups and returns | expert |
 | Last mile | Final delivery step to the end customer | You plan delivery cost or speed | core |
 
 ### Process improvement and quality
@@ -111,7 +111,7 @@ The work of planning demand, buying, making, storing, and moving goods, and of r
 | 5S (sort, set in order, shine, standardize, sustain) | Method to organize and keep a workplace clean | You set up or audit a work area | core |
 | Kanban | Signal card or bin that triggers replenishment | You run a pull system | core |
 | Pull system | Make or move only what the next step uses | You replace forecast-pushed production | core |
-| Poka-yoke | Mistake-proofing so an error cannot happen | You prevent repeat defects | expert |
+| Poka-yoke | Mistake-proofing that prevents an error or flags it at once | You prevent repeat defects | expert |
 | Six Sigma | Data-driven method to cut process variation | You attack defects with statistics | core |
 | DMAIC (define, measure, analyze, improve, control) | Five-phase Six Sigma project cycle | You structure an improvement project | core |
 | PDCA (plan, do, check, act) | Four-step cycle to test and keep changes | You run a fast improvement loop | core |
@@ -145,46 +145,46 @@ The work of planning demand, buying, making, storing, and moving goods, and of r
 | KPI (key performance indicator) | Main metric that shows if a goal is met | You pick what to measure | core |
 | OKR (objectives and key results) | Goal plus a few measurable results that prove it | You set quarterly team goals | core |
 | SLA (service level agreement) | Agreed performance standard between provider and client | You contract a 3PL, carrier, or team | core |
-| OTIF (on time in full) | Share of orders delivered on the date, complete | You measure delivery to customers | core |
+| OTIF (on time in full) | Share of orders or lines delivered on time and complete | You measure delivery to customers | core |
 | Perfect order rate | Share of orders on time, complete, undamaged, correctly documented | You report end-to-end order quality | expert |
 | Order cycle time | Time from customer order to delivery | You measure responsiveness | core |
 | Cash-to-cash cycle time | Days between paying suppliers and collecting from customers | You link operations to working capital | expert |
-| COGS (cost of goods sold) | Direct cost of the goods a company sold | You compute margins or turns | core |
+| COGS (cost of goods sold) | Inventory cost expensed when sold, including production overhead where it applies | You compute margins or turns | core |
 | SCOR model (Supply Chain Operations Reference) | ASCM standard map of supply chain processes and metrics | You benchmark or design supply chain processes | expert |
 
 ## Phrasebook
 
 | Generic words | Trade words |
 |---|---|
-| figure out how much we will sell | build a demand forecast; run demand planning |
-| get sales and operations on the same page | run the monthly S&OP cycle to a consensus plan |
-| how good is our forecast | forecast accuracy (MAPE) and forecast bias |
-| we keep running out | low fill rate; review safety stock and reorder point |
-| we have too much stuff sitting around | excess and obsolete (E&O) inventory; low inventory turns |
-| when should we order more | reorder point (ROP) |
-| how much should we order | order quantity; EOQ, subject to MOQ |
-| a cushion of extra stock | safety stock at a target service level |
-| figure out which products matter most | ABC analysis |
-| ask suppliers for prices | issue an RFQ |
+| figure out how much we will sell | demand forecast |
+| get sales and operations on the same page | align sales and operations on one plan (S&OP) |
+| how good is our forecast | forecast accuracy (MAPE or another error metric) and forecast bias |
+| we keep running out | frequent stockouts (low fill rate) |
+| we have too much stuff sitting around | excess inventory (low inventory turns) |
+| when should we order more | replenishment trigger: reorder point (or periodic review) |
+| how much should we order | order quantity (lot size) |
+| a cushion of extra stock | safety stock (buffer stock) |
+| figure out which products matter most | product prioritization (ABC analysis or Pareto ranking) |
+| ask suppliers for prices | RFQ (request for quotation) |
 | the real cost including shipping | landed cost |
-| the cheapest supplier | lowest total cost of ownership (TCO), not lowest unit price |
+| the cheapest supplier | lowest-cost supplier (by unit price or by total cost of ownership) |
 | rate our suppliers | supplier scorecard (OTIF, quality, lead time, cost) |
 | list of parts in the product | bill of materials (BOM) |
-| how long until it arrives | lead time |
+| how long until it arrives | lead time (or transit time for a shipment) |
 | the slow step holding everything up | bottleneck (constraint) |
 | how fast we need to make each one | takt time |
 | how much good product comes out | yield; first pass yield (FPY) |
-| machines are not running well | low OEE (overall equipment effectiveness) |
+| machines are not running well | equipment losses (availability, performance, or quality), tracked as OEE |
 | outsource our shipping and storage | use a 3PL |
 | who pays for shipping and insurance | the Incoterms 2020 rule, for example FOB or DDP |
 | delivery to the customer's door | last-mile delivery |
-| orders arrive late or incomplete | low OTIF; low perfect order rate |
-| make the process less wasteful | apply lean; map the value stream; remove muda |
-| find out why it keeps breaking | root cause analysis (5 whys, fishbone) and CAPA |
+| orders arrive late or incomplete | low OTIF (on time in full) |
+| make the process less wasteful | eliminate process waste (muda) |
+| find out why it keeps breaking | root cause analysis (for example 5 whys or fishbone) |
 | written instructions for the job | standard operating procedure (SOP) |
-| who does what on the project | RACI matrix |
+| who does what on the project | responsibility assignment matrix (for example RACI) |
 | the tasks that cannot be late | critical path |
-| the project keeps growing | scope creep; send it through change control |
+| the project keeps growing | scope creep (uncontrolled scope change) |
 
 ## Deliverable shapes
 
@@ -231,6 +231,7 @@ The work of planning demand, buying, making, storing, and moving goods, and of r
 - Saylor BUS300: Operations Management (Lumen), LibreTexts. https://biz.libretexts.org/@go/page/88466 (educational)
 - Introduction to Supply Chain Management, Open Textbook Library. https://open.umn.edu/opentextbooks/textbooks/introduction-to-supply-chain-management (educational)
 - Lean Lexicon, 6th edition, Lean Enterprise Institute. https://www.lean.org/store/book/lean-lexicon-6th-edition/ (educational)
+- Glossary of Key Lean Terms, Washington State Results WA. https://results.wa.gov/sites/default/files/Mapping%20Your%20Path_Eden%20Teachout_%20HANDOUT_Lean_Glossary_FINAL.pdf (institution; search result)
 - Flexport Glossary, Flexport. https://www.flexport.com/glossary/ (tool docs)
 - 3PLs from A to Z: Definitions for Order Fulfillment and Ecommerce Shipping, ShipBob. https://www.shipbob.com/blog/3pls-from-a-to-z-definitions-for-e-commerce-order-fulfillment/ (tool docs)
 - Master Production Scheduling and Material Requirements Planning, Oracle JD Edwards documentation. https://docs.oracle.com/en/applications/jd-edwards/supply-chain-manufacturing/9.2/eoarp/master-production-scheduling-and-material-requirements-planning.html (tool docs)
@@ -242,3 +243,5 @@ The work of planning demand, buying, making, storing, and moving goods, and of r
 - Central Demand Planner job posting, TE Connectivity. https://careers.te.com/job/CENTRAL-DEMAND-PLANNER/138890-en_US/ (usage check)
 - Demand Planner job description template, Rework. https://resources.rework.com/libraries/job-description-templates/demand-planner (usage check)
 - S&OP Planner job posting, Water Technologies (WayUp). https://www.wayup.com/i-j-S-OP-Planner-Water-Technologies-906183308761992/ (usage check)
+- IAS 2 Inventories, IFRS Foundation. https://www.ifrs.org/issued-standards/list-of-standards/ias-2-inventories/ (standard)
+- UCC 7-104 negotiable and nonnegotiable document of title, Cornell LII. https://www.law.cornell.edu/ucc/7/7-104 (law)

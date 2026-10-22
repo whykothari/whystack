@@ -18,7 +18,7 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
 | Job description (JD) | Document with a role's purpose, duties, and requirements | You open or post a role | core |
-| Job analysis | Study of a role's tasks and the skills it needs | You write a JD or set a job level | expert |
+| Job analysis | Study of a role's tasks and the skills it needs | You write a JD or set a job level | core |
 | Req (requisition) | Approved opening to hire for one role | You start a search | core |
 | Intake meeting (hiring manager kickoff) | Recruiter and manager agree on role, profile, and process | You start a search | core |
 | Sourcing | Finding and contacting candidates who did not apply | You build a pipeline | core |
@@ -30,9 +30,9 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Behavioral interview | Questions about past actions to predict future behavior | You assess competencies | core |
 | Work sample (skills assessment) | Task that shows how the candidate does the job | You test real job skills | expert |
 | Debrief | Meeting where the hiring team makes a decision | You decide on a candidate | core |
-| Reference check | Calls to past managers to verify fit and record | Before you make an offer | core |
+| Reference check | Contacts with former managers or peers to check past performance | Before you make an offer | core |
 | Offer letter | Letter with role, pay, equity, start date, and terms | You extend an offer | core |
-| Time to fill / time to hire | Days from opening or application to accepted offer | You measure hiring speed | core |
+| Time to fill / time to hire | Fill: req opened to offer accepted; hire: candidate applied to accepted | You measure hiring speed | core |
 
 ### Compensation and benefits
 
@@ -44,7 +44,7 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Pay band (salary range) | Minimum to maximum pay for one job level | You set or check pay for a role | core |
 | Market pricing (benchmarking) | Setting pay from salary survey data | You build pay bands | core |
 | Market percentile (P50, P75) | Where pay sits against market data | You set pay positioning | core |
-| Compa-ratio | Salary divided by the band midpoint | You check pay position in a band | expert |
+| Compa-ratio | Salary divided by band midpoint (or market median) | You check pay position in a band | expert |
 | Range penetration | Where pay sits between band minimum and maximum | You check progress through a band | expert |
 | Variable pay (bonus, commission) | Pay that depends on results | You design incentive pay | core |
 | OTE (on-target earnings) | Base plus variable pay at 100% of target | You pay sales roles | core |
@@ -52,10 +52,10 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Comp cycle (compensation review) | Scheduled review of raises, bonuses, and equity | You plan annual pay changes | core |
 | Pay equity audit | Analysis of pay gaps across gender, race, or other groups | You check for fair pay | expert |
 | Pay transparency | Sharing pay ranges in job posts or inside the company | Laws require ranges in postings | core |
-| Equity grant (stock options, RSUs) | Ownership pay that vests over time | You offer long-term incentives | core |
+| Equity grant (stock options, RSUs, restricted stock units) | Ownership pay that vests over time | You offer long-term incentives | core |
 | Vesting schedule and cliff | When equity is earned; cliff is the first vest date | You grant equity | core |
 | ISO vs NSO (incentive vs non-qualified stock option) | Two US option types with different tax treatment | You grant options to staff or advisors | expert |
-| Strike price (exercise price) | Price to buy option shares, set from a 409A valuation | You explain an option grant | expert |
+| Strike price (exercise price) | Price to buy option shares; grant-date fair market value (409A if private) | You explain an option grant | expert |
 | Benefits package | Health insurance, retirement plan, leave, and other non-cash rewards | You design the offer | core |
 
 ### Performance management
@@ -68,7 +68,7 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Calibration | Managers compare ratings to apply one standard | You make ratings fair across teams | core |
 | 9-box grid | Grid that plots performance against potential | You run a talent review | expert |
 | OKRs (objectives and key results) | Goal method: one objective plus measurable results | You set and track team goals | core |
-| SMART goals | Goals that are specific, measurable, achievable, relevant, time-bound | You write individual goals | core |
+| SMART (specific, measurable, achievable, relevant, time-bound) goals | Goals that are specific, measurable, achievable, relevant, time-bound | You write individual goals | core |
 | One-on-one (1:1) | Regular private meeting of manager and direct report | You manage people week to week | core |
 | Continuous feedback | Ongoing feedback instead of once a year | You change the review cadence | expert |
 | PIP (performance improvement plan) | Formal plan with goals and a deadline to improve | Performance is below standard | core |
@@ -82,12 +82,12 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Onboarding | Process that gets a new hire productive and connected | A new hire starts | core |
 | 30-60-90 day plan | Goals for a new hire's first three months | You onboard someone | core |
 | Training needs analysis (TNA) | Study of skill gaps that training must close | You plan a training budget | expert |
-| ADDIE | Course design steps: analyze, design, develop, implement, evaluate | You build a course | expert |
+| ADDIE (analysis, design, development, implementation, evaluation) | Course design steps: analyze, design, develop, implement, evaluate | You build a course | expert |
 | Kirkpatrick model | Four levels to evaluate training, from reaction to results | You measure training impact | expert |
 | LMS (learning management system) | Software that delivers and tracks training | You run training at scale | core |
 | IDP (individual development plan) | Personal plan for skills and career growth | You coach someone's growth | core |
 | Succession planning | Naming and readying people for key roles | You reduce key-person risk | core |
-| Compliance training | Training the law requires, such as harassment prevention | A law or policy requires it | core |
+| Compliance training | Training that laws or company policy require, such as harassment prevention | A law or policy requires it | core |
 
 ### Employee relations and policy
 
@@ -98,12 +98,13 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Workplace investigation | Fact-finding into a complaint of misconduct | An employee reports a problem | core |
 | Progressive discipline | Escalating steps: verbal warning, written warning, termination | You address repeated misconduct | core |
 | Retaliation | Punishment for a complaint or other protected act | You act after a complaint | core |
-| Reasonable accommodation | Job change for a disability or religious need | An employee asks for an adjustment | core |
-| Leave of absence (FMLA) | Approved time away, some protected by law | An employee needs extended leave | core |
+| Reasonable accommodation | Job or workplace change for disability, pregnancy, or religion | An employee asks for an adjustment | core |
+| Interactive process (disability accommodation) | Employer and employee discuss limits and options to find an accommodation | An employee asks for a disability accommodation | expert |
+| Leave of absence (FMLA) | Extended time away; FMLA gives eligible staff job-protected unpaid leave | An employee needs extended leave | core |
 | Voluntary vs involuntary termination | Exit the employee chose vs exit the employer chose | You record an exit | core |
 | Severance | Pay at exit, often in exchange for a release | You plan an exit | core |
-| RIF (reduction in force) | Layoff of roles for business reasons | You cut headcount | core |
-| WARN Act | US law that requires notice before mass layoffs | You plan a large layoff | expert |
+| RIF (reduction in force) | Permanent cut of roles for business reasons | You cut headcount | core |
+| WARN (Worker Adjustment and Retraining Notification) Act | US law: 60 days' notice before plant closings or mass layoffs | You plan a large layoff or site closure | expert |
 | Exit interview | Talk with a leaving employee about the reasons | You learn why people leave | core |
 
 ### HR operations and compliance
@@ -120,7 +121,8 @@ The work of attracting, paying, developing, and managing the people in an organi
 | PEO (professional employer organization) | Co-employer that runs payroll, benefits, and compliance | A small company outsources HR admin | core |
 | EOR (employer of record) | Third party that legally employs staff abroad for you | You hire in a country with no entity | core |
 | Offboarding | Exit steps: final pay, access removal, equipment return | An employee leaves | core |
-| EEO-1 report | Annual US filing of workforce data by race and gender | You have 100 or more employees | expert |
+| EEO-1 (Equal Employment Opportunity) report | Annual US filing of workforce counts by job, race, and sex | You have 100 or more employees (fewer for some federal contractors) | expert |
+| Adverse impact (disparate impact) | Group selection rate well below the top group's, often under four-fifths | You audit a hiring test, screen, or layoff list | expert |
 
 ### Org design and workforce planning
 
@@ -129,8 +131,8 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Workforce planning (headcount plan) | Plan of roles and hires needed for future goals | You plan the budget year | core |
 | Org design | Shaping structure, roles, and reporting lines to fit strategy | You restructure a team | core |
 | Org chart | Diagram of reporting lines | You show the structure | core |
-| Span of control | Number of direct reports per manager | You size teams | expert |
-| RACI | Chart of who is responsible, accountable, consulted, informed | You clarify decision rights | expert |
+| Span of control | Number of direct reports per manager | You size teams | core |
+| RACI (responsible, accountable, consulted, informed) | Chart of who is responsible, accountable, consulted, informed | You clarify decision rights | core |
 | Build, buy, borrow | Develop, hire, or contract to fill skill gaps | You plan capabilities | expert |
 | Fully loaded cost | Salary plus benefits, taxes, and overhead per employee | You budget headcount | core |
 | HRBP (HR business partner) | HR lead who advises one business unit | You assign HR support | core |
@@ -142,8 +144,8 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Employee engagement | Staff commitment and energy toward their work | You measure culture | core |
 | Engagement survey | Survey of engagement and what drives it | You run a yearly culture check | core |
 | Pulse survey | Short, frequent survey on a few topics | You track sentiment between big surveys | core |
-| eNPS (employee net promoter score) | Net share who would recommend the company as an employer | You track sentiment over time | core |
-| Attrition rate (turnover) | Share of employees who leave in a period | You track retention | core |
+| eNPS (employee net promoter score) | Percent promoters minus percent detractors on recommending the employer | You track sentiment over time | core |
+| Attrition rate (turnover) | Leavers in a period divided by average headcount | You track retention | core |
 | Regrettable attrition | Leavers the company wanted to keep | You focus retention work | expert |
 | DEI (diversity, equity, and inclusion) | Practices for fair access, representation, and belonging | You set inclusion goals | core |
 | Company values | Stated principles that guide behavior and decisions | You define culture | core |
@@ -153,34 +155,34 @@ The work of attracting, paying, developing, and managing the people in an organi
 
 | Generic words | Trade words |
 |---|---|
-| write a job ad | write a job description with outcomes, requirements, and pay range |
-| figure out what the role needs | run an intake meeting and job analysis |
-| find people to hire | source candidates and build a pipeline |
-| make interviews fair | structured interviews with a scorecard and anchored rating scale |
+| write a job ad | job posting (job ad), drawn from the job description |
+| figure out what the role needs | role requirements (from a job analysis or intake meeting) |
+| find people to hire | recruit candidates (sourcing, job posts, or referrals) |
+| make interviews fair | reduce interview bias (for example structured interviews or scorecards) |
 | who interviews for what | interview loop with focus attributes per interviewer |
-| decide on the candidate | hiring debrief after all scorecards are in |
+| decide on the candidate | hiring decision (often made in a debrief) |
 | how fast we hire | time to fill and time to hire |
-| how much to pay | market pricing against a pay band at a set percentile |
+| how much to pay | pay rate for the role (against a pay band or market data) |
 | salary ranges | pay bands with minimum, midpoint, and maximum |
 | levels and titles | job architecture (leveling framework) |
-| yearly raises | merit increases in the annual comp cycle |
-| check we pay fairly | pay equity audit |
+| yearly raises | annual pay increases (merit or cost-of-living) |
+| check we pay fairly | pay equity audit (internal fairness) or market benchmarking (external) |
 | sales pay | OTE with a base and variable split |
-| everything they get | total rewards statement |
-| yearly review | performance review cycle with self-assessment and calibration |
+| everything they get | total rewards |
+| yearly review | annual performance review (review cycle) |
 | make ratings consistent across teams | calibration session |
-| plan for someone who is struggling | PIP (performance improvement plan) |
-| get new people up to speed | onboarding plan with 30-60-90 day goals |
-| who could replace key people | succession planning and a 9-box talent review |
-| look into a complaint | workplace investigation with findings and a report |
-| warn someone before firing | progressive discipline |
-| layoffs | RIF (reduction in force), with WARN Act check |
-| check they can legally work here | Form I-9 and E-Verify |
+| plan for someone who is struggling | performance gap; options range from coaching to a formal PIP (performance improvement plan) |
+| get new people up to speed | onboarding (ramp-up) plan |
+| who could replace key people | succession planning (talent review) |
+| look into a complaint | workplace investigation |
+| warn someone before firing | documented warning (a step in progressive discipline, where policy uses it) |
+| layoffs | RIF (reduction in force) or temporary layoff |
+| check they can legally work here | employment eligibility verification on Form I-9 (E-Verify where required or used) |
 | contractor or employee | worker classification analysis |
-| hire someone in another country | EOR (employer of record) |
-| plan how many people we need | workforce plan with fully loaded cost per role |
-| how happy people are | engagement survey and eNPS |
-| people quitting | attrition rate, split into regrettable and non-regrettable |
+| hire someone in another country | international hire; options include an EOR (employer of record), a local entity, or a contractor |
+| plan how many people we need | workforce plan (headcount plan) |
+| how happy people are | employee engagement (or satisfaction) |
+| people quitting | voluntary attrition (regrettable or non-regrettable) |
 
 ## Deliverable shapes
 
@@ -198,6 +200,7 @@ The work of attracting, paying, developing, and managing the people in an organi
 | Investigation report | allegation, scope, investigator, interviews held, evidence, findings of fact, conclusion, recommended actions |
 | Workforce plan | current headcount, target headcount by team and quarter, roles and levels, fully loaded cost, hiring timeline, build, buy, or borrow choice |
 | Engagement survey readout | response rate, overall engagement score, eNPS, driver scores, trends, segment cuts, top themes, action plan with owners |
+| Separation (offboarding) checklist | last day and notice, final pay by the state deadline, benefits end date and COBRA notice, equity and vesting status, property return, access removal, separation agreement if any, exit interview, knowledge handoff, records update |
 
 ## Misused or dated terms
 
@@ -233,3 +236,9 @@ The work of attracting, paying, developing, and managing the people in an organi
 - 9-box performance review guide, Confirm. https://www.confirm.com/blog/9-box-performance-review-talent-evaluation-guide (practitioner writing)
 - HR business partner job description, SHRM. https://shrm.org/topics-tools/tools/job-descriptions/hr-business-partner (usage check)
 - HR business partner job description, Workable. https://resources.workable.com/hr-business-partner-job-description (usage check)
+- 29 CFR 1607.4 (Uniform Guidelines on Employee Selection Procedures), Cornell LII. https://www.law.cornell.edu/cfr/text/29/1607.4 (regulation)
+- Interactive process, Job Accommodation Network. https://askjan.org/topics/interactive.cfm (institution docs)
+- Pregnant Workers Fairness Act, Job Accommodation Network. https://askjan.org/articles/Pregnant-Workers-Fairness-Act.cfm (institution docs; search result)
+- Plant closings and layoffs (WARN), US Department of Labor. https://www.dol.gov/general/topic/termination/plantclosings (regulator; search result)
+- It's time again for employers to file their EEO-1 reports, Foley & Lardner. https://www.foley.com/?p=113180 (practitioner writing; search result)
+- Effective interactive process, US Department of the Interior. https://www.doi.gov/sites/default/files/employee-resource-effective-interactive-process.pdf (regulator; search result)

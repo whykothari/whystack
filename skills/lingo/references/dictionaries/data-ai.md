@@ -21,11 +21,11 @@ The work of collecting, modeling, analyzing, and governing data, and of building
 | Dimension and measure | Attribute you group by versus number you aggregate | You define a metric or build a chart | core |
 | Metric definition | Exact formula, filters, grain, and owner of a metric | Teams report different numbers for one metric | core |
 | Semantic layer (metrics layer) | One shared place where metrics are defined once | Many tools must show the same numbers | expert |
-| Dashboard | Live page of charts that tracks key metrics | People need to monitor metrics often | core |
+| Dashboard | Page of charts that tracks key metrics as data refreshes | People need to monitor metrics often | core |
 | Drill-down | Move from a summary to finer detail | You explain what drives a number | core |
 | Cohort analysis | Compare groups that started in the same period | You study retention or behavior over time | core |
 | Funnel analysis | Track drop-off across ordered steps | You find where users quit a flow | core |
-| Retention | Share of users who return over time | You judge product stickiness | core |
+| Retention | Share of a starting cohort still active after a set period | You judge product stickiness | core |
 | RLS (row-level security) | Each user sees only the rows they may see | A report serves users with different access | expert |
 
 ### Data engineering
@@ -65,9 +65,9 @@ The work of collecting, modeling, analyzing, and governing data, and of building
 |---|---|---|---|
 | A/B test (online controlled experiment) | Randomly split users to compare a change against control | You test whether a change works | core |
 | Control and treatment (variant) | Group with no change versus group with the change | You set up an experiment | core |
-| p-value | Chance of a result this extreme if no real effect exists | You read test results | core |
+| p-value | Chance of a result at least this extreme if no effect exists | You read test results | core |
 | Statistical significance (alpha) | Result passes a preset false-positive threshold | You decide whether to ship | core |
-| Confidence interval | Range likely to contain the true value | You report effect size with its uncertainty | core |
+| Confidence interval | Range built so that X% of such ranges hold the true value | You report effect size with its uncertainty | core |
 | Type I and Type II errors | False positive versus false negative | You set alpha and power | core |
 | Statistical power | Chance the test detects a real effect | You size an experiment | core |
 | MDE (minimum detectable effect) | Smallest effect the test is sized to detect | You compute sample size | expert |
@@ -102,7 +102,7 @@ The work of collecting, modeling, analyzing, and governing data, and of building
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| Foundation model (base model) | Large pretrained model that adapts to many tasks | You choose a model to build on | core |
+| Foundation model | Large pretrained model that adapts to many tasks | You choose a model to build on | core |
 | Token | Unit of text that a model reads and writes | You estimate cost, limits, or latency | core |
 | Context window | Most tokens a model can handle in one call | Inputs are long | core |
 | System prompt | Standing instructions that set role, rules, and format | You configure an assistant or agent | core |
@@ -114,18 +114,18 @@ The work of collecting, modeling, analyzing, and governing data, and of building
 | Embedding | Vector of numbers that captures meaning for similarity search | You search or cluster by meaning | core |
 | Chunking | Split documents into retrievable pieces | You index documents for RAG | core |
 | Vector database | Store that searches embeddings by similarity | You build retrieval at scale | core |
-| Hybrid search (BM25 plus embeddings) | Combine keyword and semantic search results | Queries include exact terms like codes or names | expert |
+| Hybrid search (BM25 keyword ranking plus embeddings) | Combine keyword and semantic search results | Queries include exact terms like codes or names | expert |
 | Reranking | Rescore retrieved results and keep the best few | Retrieval returns noisy results | expert |
 | Grounding (faithfulness) | Answer is supported by the provided sources | Wrong answers carry real risk | expert |
 | Hallucination | Fluent output that is false or unsupported | You assess answer reliability | core |
 | Evals | Repeatable tests that score model or system output | You change a prompt, model, or pipeline | core |
 | Golden dataset (eval set) | Curated inputs with expected outputs or grading notes | You build evals | expert |
-| LLM-as-judge | A model grades outputs against a rubric | Human grading is too slow | expert |
+| LLM-as-judge (large language model as judge) | A model grades outputs against a rubric | Human grading is too slow | expert |
 | Error analysis | Read failures, group them, fix the biggest groups first | Eval scores are low and causes unclear | expert |
 | Trace | Logged record of every step in one request | You debug or monitor an LLM app | expert |
 | Fine-tuning | Further training of a pretrained model on task data | Prompting and RAG are not enough | core |
 | SFT (supervised fine-tuning) | Train on pairs of prompts and ideal responses | You teach a format, style, or task | expert |
-| LoRA (low-rank adaptation) and PEFT (parameter-efficient fine-tuning) | Fine-tune a small set of added weights only | You fine-tune on a tight budget | expert |
+| LoRA (low-rank adaptation) and PEFT (parameter-efficient fine-tuning) | Fine-tune only a small share of weights, often added ones | You fine-tune on a tight budget | expert |
 | Agent | LLM that chooses its own steps and tool calls | The path to the goal is not fixed | core |
 | Workflow (agentic workflow) | LLM calls along fixed, predefined code paths | The steps are known ahead of time | expert |
 | Tool use (function calling) | Model calls external functions through defined schemas | The model must act or fetch live data | core |
@@ -152,31 +152,31 @@ The work of collecting, modeling, analyzing, and governing data, and of building
 
 | Generic words | Trade words |
 |---|---|
-| a report that shows how we're doing | KPI dashboard with metric definitions and drill-downs |
-| everyone has different numbers | define metrics once in a semantic layer with a named owner |
-| how many people come back | retention by signup cohort |
+| a report that shows how we're doing | KPI report (or dashboard) |
+| everyone has different numbers | metric discrepancies across reports |
+| how many people come back | retention rate (or cohort retention) |
 | where people drop off | funnel analysis with step-level conversion |
-| move data from our app into one place | ELT pipeline into the warehouse, with CDC from the app database |
-| clean up the data tables | staging, intermediate, and mart layers with dbt tests |
-| keep history when a customer changes plan | SCD type 2 on the customer dimension |
-| one row per what? | declare the grain of the fact table |
-| the data broke and nobody noticed | add data observability: freshness, volume, and schema checks |
-| the other team changed their table and broke ours | set a data contract with the producer |
-| test if the new version is better | A/B test with a primary metric, guardrail metrics, and a pre-set sample size |
+| move data from our app into one place | data pipeline into a central warehouse |
+| clean up the data tables | data cleaning and transformation (data modeling) |
+| keep history when a customer changes plan | track history with SCD type 2 (or snapshots) |
+| one row per what? | the table's grain |
+| the data broke and nobody noticed | undetected data quality incident |
+| the other team changed their table and broke ours | upstream breaking schema change |
+| test if the new version is better | A/B test (or offline evaluation) |
 | is the result real? | check statistical significance, confidence interval, and SRM |
 | how many users do we need | power analysis from baseline rate, MDE, alpha, and power |
-| predict which customers will leave | supervised churn classifier; report precision, recall, and AUC-ROC |
+| predict which customers will leave | churn prediction model |
 | the model is great in testing but bad live | check for data leakage, training-serving skew, and drift |
-| make the chatbot use our documents | RAG: chunk, embed, hybrid search, rerank, and cite sources |
-| the AI makes things up | hallucination; enforce grounding and measure faithfulness |
-| check if the AI is good | build evals on a golden dataset with code checks and LLM-as-judge |
-| make the AI give the same format every time | structured output with a JSON schema |
-| teach the AI our style | few-shot examples first; SFT or LoRA fine-tuning if that fails |
-| let the AI do tasks by itself | agent with tool use, a step limit, and guardrails |
-| stop users tricking the AI | defend against prompt injection; add input and output guardrails |
-| the AI is too slow or costly | cut tokens, cache prompts, route to a smaller model, or distill |
-| who is in charge of this data | name a data owner and data steward; register it in the data catalog |
-| personal info | PII; mask it and apply a retention policy |
+| make the chatbot use our documents | RAG (retrieval-augmented generation) over our documents |
+| the AI makes things up | hallucination (ungrounded output) |
+| check if the AI is good | evals (evaluation of model or system output) |
+| make the AI give the same format every time | structured output (schema-constrained format) |
+| teach the AI our style | style adaptation by few-shot prompting (or fine-tuning) |
+| let the AI do tasks by itself | AI agent with tool use |
+| stop users tricking the AI | prompt injection or jailbreak defense |
+| the AI is too slow or costly | LLM latency and cost optimization |
+| who is in charge of this data | data ownership (data owner and data steward) |
+| personal info | PII (personally identifiable information), or personal data under GDPR |
 
 ## Deliverable shapes
 
@@ -193,6 +193,7 @@ The work of collecting, modeling, analyzing, and governing data, and of building
 | Eval plan | success criteria, golden dataset, grading method (code, LLM-as-judge, human), rubric, thresholds, run cadence |
 | RAG system design | corpus, chunking, embedding model, retrieval (hybrid, top-k), reranking, prompt template, citations, evals |
 | Agent spec | goal, tools and schemas, system prompt, stop conditions, guardrails, human review points, evals, tracing |
+| SQL analysis (query plus findings) | business question, data sources and tables, assumptions and filters, commented query, result table or chart, key findings, caveats, next steps |
 
 ## Misused or dated terms
 
@@ -207,7 +208,7 @@ The work of collecting, modeling, analyzing, and governing data, and of building
 | Fine-tune for a prompt change | Fine-tuning changes model weights | prompt engineering |
 | Agent for a fixed sequence of calls | Agents choose their own steps | workflow or prompt chain |
 | Hallucination for every wrong answer | Hides whether retrieval or generation failed | retrieval failure versus ungrounded answer |
-| Measure (dbt Semantic Layer) | Renamed in dbt 1.12 | simple metric |
+| Measure (dbt Semantic Layer) | Deprecated in the new YAML spec (Fusion, dbt Core 1.12) | simple metric |
 | Data scientist for every data role | Roles split into analyst, analytics engineer, ML engineer | name the role |
 
 ## Sources
@@ -225,6 +226,7 @@ The work of collecting, modeling, analyzing, and governing data, and of building
 - MLOps: Continuous delivery and automation pipelines in machine learning, Google Cloud. https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning (docs and glossary)
 - How we structure our dbt projects, dbt Labs. https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview (docs and glossary)
 - About MetricFlow, dbt Labs. https://docs.getdbt.com/docs/build/about-metricflow (docs and glossary)
+- Migrate to the latest YAML spec, dbt Labs. https://docs.getdbt.com/docs/build/latest-metrics-spec (docs and glossary)
 - Medallion Architecture, Databricks. https://www.databricks.com/glossary/medallion-architecture (docs and glossary)
 - OpenLineage documentation, OpenLineage. https://openlineage.io/docs/ (docs and glossary)
 - What is Power BI?, Microsoft Learn. https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-service-overview (docs and glossary)

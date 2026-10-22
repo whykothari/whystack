@@ -30,7 +30,8 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | Fully loaded cost | Salary plus benefits, payroll taxes, and overhead | You cost a hire or a team | core |
 | Opex (operating expenses) | Day-to-day costs to run the business | You plan spend that hits the P&L | core |
 | Capex (capital expenditure) | Spend on long-lived assets like equipment | You plan purchases that get depreciated | core |
-| EBITDA | Operating profit before depreciation and amortization | You compare operating profit across companies | core |
+| EBITDA (earnings before interest, taxes, depreciation, and amortization) | Net income with interest, taxes, depreciation, amortization added back | You compare operating profit across companies | core |
+| Adjusted EBITDA | EBITDA after company-chosen add-backs; a non-GAAP measure | You read deal materials or loan covenants | expert |
 | Run rate | Current period result scaled to a full year | You annualize a recent month or quarter | core |
 | LTM / NTM (last / next twelve months) | Trailing or forward twelve-month period | You set the time basis for a metric | core |
 | Scenario analysis | Results under base, upside, and downside cases | You test the plan against different futures | core |
@@ -48,7 +49,7 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | Balance check | Test that assets equal liabilities plus equity | You prove the model ties out | core |
 | Circular reference | Formula that depends on its own result | You model interest on average debt | expert |
 | Pro forma | Results restated as if an event already happened | You show a merger, raise, or new structure | core |
-| FAST Standard | Published rules for clear, reviewable spreadsheet models | You need a model style other people can audit | expert |
+| FAST (flexible, appropriate, structured, transparent) Standard | Published rules for clear, reviewable spreadsheet models | You need a model style other people can audit | expert |
 
 ### Valuation and capital budgeting
 
@@ -61,7 +62,7 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | UFCF (unlevered free cash flow) | Cash flow available to all investors before debt payments | You build a DCF for enterprise value | core |
 | WACC (weighted average cost of capital) | Blended return that debt and equity holders require | You choose the discount rate for a DCF | core |
 | CAPM (capital asset pricing model) | Cost of equity from risk-free rate, beta, and risk premium | You estimate cost of equity | core |
-| Beta | How much a stock moves with the market | You set equity risk in CAPM | expert |
+| Beta | How much a stock moves with the market | You set equity risk in CAPM | core |
 | Terminal value (TV) | Value after the forecast, by perpetuity growth or exit multiple | You finish a DCF | core |
 | Mid-year convention | Discount cash as if it arrives mid-period | You refine DCF timing | expert |
 | EV (enterprise value) | Value of the whole business to all investors | You compare companies with different debt | core |
@@ -83,10 +84,11 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | Default alive | On current trend, reaches profit before cash runs out | You test if the company survives without new money | expert |
 | Burn multiple | Net burn divided by net new ARR | You judge growth efficiency | expert |
 | Cap table (capitalization table) | Ledger of who owns which shares, options, and notes | You model ownership or a round | core |
-| Fully diluted shares | All shares if every option and note converts | You compute ownership percentages | core |
+| Fully diluted shares | All shares if every option, warrant, and convertible security converts | You compute ownership percentages | core |
 | Dilution | Drop in ownership share when new shares are issued | You model the effect of a raise | core |
 | Pre-money / post-money valuation | Company value before or after the new money | You price a round | core |
-| Option pool (ESOP) | Shares set aside for employee equity grants | You plan hiring equity | core |
+| Option pool (employee stock option plan) | Shares set aside for employee equity grants | You plan hiring equity | core |
+| ESOP (employee stock ownership plan) (US) | Retirement plan trust that holds company stock for employees | You plan an owner exit or broad employee ownership | expert |
 | Option pool shuffle | Pool created inside pre-money, so only existing holders dilute | You compare term sheets | expert |
 | SAFE (simple agreement for future equity) | Right to future shares, priced at the next round | You raise an early round fast | core |
 | Valuation cap | Highest valuation at which a SAFE or note converts | You set early investor terms | core |
@@ -95,13 +97,13 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | Convertible note | Loan that turns into equity at a later round | You raise bridge or seed money | core |
 | Priced round | Round that sets a price per share, like Series A | You move past SAFEs | core |
 | Term sheet | Short, mostly non-binding summary of deal terms | You negotiate a round | core |
-| Liquidation preference | Investors get money back first in a sale | You model exit payouts or compare participating terms | core |
+| Liquidation preference | Preferred holders get a set amount before common in a sale | You model exit payouts or compare participating terms | core |
 | Anti-dilution (broad-based weighted average) | Lowers investor conversion price after a cheaper round | You plan for a down round | expert |
 | Pro rata rights | Right to invest later to keep ownership share | You allocate a new round | core |
 | Protective provisions | Investor veto rights over major company actions | You review governance terms | expert |
-| Vesting with cliff | Equity earned over time, first part after one year | You grant founder or employee equity | core |
+| Vesting with cliff | Equity earned over time; none vests before the cliff, often one year | You grant founder or employee equity | core |
 | 409A valuation | Independent fair market value of common stock for US tax | You set option strike prices | core |
-| Raise size (round size) | Cash to reach next-round milestones, plus a buffer | You decide how much money to ask for | core |
+| Raise size (round size) | Total cash a company raises in one round | You decide how much money to ask for | core |
 | Milestone-based raise | Raise sized to hit the proof points for the next round | You justify the ask to investors | expert |
 | Use of funds | Plan of what the raise buys and which milestones it reaches | You show investors where the money goes | core |
 | Pitch deck | Short slide story that asks investors for money | You pitch a round | core |
@@ -113,18 +115,18 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 |---|---|---|---|
 | Unit economics | Revenue and cost of one customer or unit | You test if growth makes money | core |
 | CAC (customer acquisition cost) | Sales and marketing spend to win one customer | You set or judge a growth budget | core |
-| LTV (customer lifetime value) | Gross profit a customer brings over their lifetime | You set how much to spend per customer | core |
+| LTV (customer lifetime value, gross margin basis) | Gross profit from one customer over their lifetime | You set how much to spend per customer | core |
 | LTV:CAC ratio | Lifetime value divided by acquisition cost | You judge growth efficiency | core |
 | CAC payback period | Months of gross profit to earn back CAC | You judge cash efficiency of growth | core |
 | Contribution margin | Revenue minus all variable costs | You price or decide to scale a product | core |
-| Gross margin | Revenue minus cost of revenue, as a percent | You judge how profitable revenue is | core |
+| Gross margin | Gross profit as a percent of revenue | You judge how profitable revenue is | core |
 | ARR / MRR (annual / monthly recurring revenue) | Recurring subscription revenue at an annual or monthly rate | You report subscription scale | core |
 | ARPU / ARPA (average revenue per user / account) | Average revenue from each user or account | You track pricing and upsell | core |
 | Churn (logo / revenue) | Customers or recurring revenue lost in a period | You track retention | core |
-| NRR (net revenue retention) | Revenue kept from existing customers, including expansion | You show growth from the base | core |
+| NRR (net revenue retention) | Recurring revenue kept from a starting cohort, after expansion, contraction, churn | You show growth from the base | core |
 | Cohort analysis | Track a group that started in the same period | You see retention or payback over time | core |
 | Bookings vs. billings | Signed contract value vs. amounts invoiced | You separate sales from revenue | expert |
-| Rule of 40 | Growth rate plus profit margin should reach 40% | You balance growth against profit | expert |
+| Rule of 40 | Revenue growth plus profit margin (EBITDA or FCF) of at least 40% | You balance growth against profit | expert |
 | Customer concentration (concentration risk) | Share of revenue that comes from the largest customers | You judge revenue risk in diligence or lending | expert |
 
 ### Treasury and working capital
@@ -133,9 +135,9 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 |---|---|---|---|
 | Liquidity | Ability to pay obligations as they come due | You check short-term safety | core |
 | 13-week cash flow forecast | Week-by-week projection of cash in and out | Cash is tight or a lender asks | core |
-| NWC (net working capital) | Current assets minus current liabilities | You model cash tied up in operations | core |
+| NWC (net working capital) | Current assets minus current liabilities; operating NWC excludes cash and debt | You model cash tied up in operations | core |
 | CCC (cash conversion cycle) | Days from paying suppliers to collecting from customers | You free up cash from operations | core |
-| DSO / DPO / DIO | Days to collect, days to pay, days inventory sits | You find working capital levers | expert |
+| DSO / DPO / DIO (days sales, payables, inventory outstanding) | Days to collect, days to pay, days inventory sits | You find working capital levers | core |
 | Cash concentration (sweep) | Move balances from many accounts into one | You centralize cash | expert |
 | Revolver (revolving credit facility) | Credit line you draw and repay as needed | You plan a liquidity backstop | core |
 | Covenant | Lender condition the borrower must keep meeting | You plan debt or check compliance | core |
@@ -149,9 +151,9 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | Risk-free rate | Return on government debt, used as a base rate | You set discount rate inputs | core |
 | Basis point (bp) | One hundredth of one percent | You state small rate changes | core |
 | Market capitalization | Share price times shares outstanding | You size a public company | core |
-| YTM (yield to maturity) | Annual return if a bond is held to maturity | You compare bonds | core |
+| YTM (yield to maturity) | Annual return at today's price if a bond is held to maturity | You compare bonds | core |
 | Duration | Bond price sensitivity to interest rate changes | You manage interest rate risk | expert |
-| Investment grade vs. high yield | Credit rating at or above BBB-, or below it | You judge credit risk | expert |
+| Investment grade vs. high yield | Credit rating at or above BBB- (Moody's Baa3), or below it | You judge credit risk | expert |
 | Asset allocation | Split of a portfolio across asset classes | You build a portfolio | core |
 | Diversification | Spread holdings to cut single-asset risk | You reduce portfolio risk | core |
 
@@ -160,24 +162,24 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | Generic words | Trade words |
 |---|---|
 | how long until we run out of money | runway at current net burn |
-| how much money we spend each month | monthly net burn (and gross burn) |
+| how much money we spend each month | monthly gross burn (and net burn) |
 | our spending plan for next year | AOP (annual operating plan) |
-| update the numbers for the rest of the year | reforecast; rolling forecast |
+| update the numbers for the rest of the year | reforecast (full-year forecast update) |
 | compare what happened to the plan | BvA (budget vs. actuals) with variance analysis |
-| explain why sales went up or down | PVM (price-volume-mix) bridge |
-| a spreadsheet of the business | three-statement model, driver-based |
+| explain why sales went up or down | revenue variance analysis (or PVM bridge) |
+| a spreadsheet of the business | financial model (three-statement or driver-based) |
 | what if things go badly | downside scenario; sensitivity table |
 | what is the company worth | valuation: DCF, trading comps, precedent transactions |
-| what similar companies sell for | trading multiples (EV/Revenue, EV/EBITDA) |
+| what similar companies sell for | trading comps multiples (or precedent transaction multiples) |
 | is this project worth it | NPV and IRR against the hurdle rate |
-| what return investors expect | cost of capital (WACC) |
+| what return investors expect | required return: cost of equity (or WACC for all investors) |
 | how much of the company we give away | dilution on a fully diluted basis |
 | who owns what | cap table |
-| early investment that becomes shares later | SAFE with a valuation cap |
-| investors get paid first if we sell | liquidation preference (1x non-participating) |
+| early investment that becomes shares later | convertible instrument: SAFE or convertible note |
+| investors get paid first if we sell | liquidation preference |
 | right to invest again later | pro rata rights |
-| how much money do we need | raise size from a milestone-based plan: net burn x runway, plus buffer |
-| what to tell investors | monthly investor update: asks, KPIs vs. plan, cash, burn, runway |
+| how much money do we need | raise size |
+| what to tell investors | investor update |
 | how much it costs to get a customer | CAC (blended and paid) |
 | how much a customer is worth | LTV on a gross margin basis |
 | how long to earn back acquisition cost | CAC payback period in months |
@@ -186,9 +188,9 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | customers leaving | logo churn and gross revenue churn |
 | yearly subscription revenue | ARR (annual recurring revenue) |
 | cash stuck in unpaid invoices and stock | net working capital; cash conversion cycle |
-| week-by-week cash plan | 13-week cash flow forecast |
-| a credit line from the bank | revolving credit facility, with covenants |
-| profit before the non-cash stuff | EBITDA |
+| week-by-week cash plan | weekly cash flow forecast (often 13 weeks) |
+| a credit line from the bank | revolving credit facility (revolver) |
+| profit before the non-cash stuff | EBITDA (also excludes interest and taxes); adjusted EBITDA if other add-backs |
 
 ## Deliverable shapes
 
@@ -223,7 +225,7 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 | Cash flow (alone) | Could mean operating, free, or net change | operating cash flow, UFCF, or net change in cash |
 | Valuation (alone, in a round) | Unclear if pre- or post-money | pre-money or post-money valuation |
 | Budget and forecast as one thing | Budget is fixed; forecast moves | budget for the target, forecast for the latest view |
-| LIBOR | Phased out in 2023 for new US dollar loans | SOFR (secured overnight financing rate) |
+| LIBOR | Last panel ended June 2023; synthetic settings ended September 2024 | SOFR (US), SONIA (UK), or another risk-free rate |
 
 ## Sources
 
@@ -267,3 +269,6 @@ Corporate finance, FP&A, valuation, startup fundraising, unit economics, treasur
 - Customer concentration, Corporate Finance Institute. https://corporatefinanceinstitute.com/resources/valuation/customer-concentration/ (institution docs)
 - Customer concentration, Wall Street Prep. https://wallstreetprep.com/knowledge/customer-concentration (institution docs)
 - Customer concentration risk: what it is, why it matters, and how to measure it, Monetizely. https://www.getmonetizely.com/articles/customer-concentration-risk-what-it-is-why-it-matters-and-how-to-measure-it (practitioner writing)
+- Non-GAAP financial measures (compliance and disclosure interpretations), US SEC. https://www.sec.gov/corpfin/non-gaap-financial-measures (regulator)
+- ESOP (employee stock ownership plan) facts, NCEO. https://www.nceo.org/what-is-employee-ownership/esop-employee-stock-ownership-plan (institution docs)
+- US dollar LIBOR panel has now ceased, Financial Conduct Authority. https://www.fca.org.uk/news/news-stories/us-dollar-libor-panel-has-now-ceased (regulator; read through search results)

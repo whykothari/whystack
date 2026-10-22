@@ -24,7 +24,7 @@ Financial and management accounting: recording transactions, closing the books, 
 | Balance sheet | Assets, liabilities, and equity on one date | You show financial position | core |
 | Statement of cash flows | Cash in and out by operating, investing, financing | You show where cash came from and went | core |
 | Accounting equation | Assets equal liabilities plus equity | You check that entries balance | core |
-| Materiality | Size of error that would change a reader's decision | You decide what to fix or disclose | core |
+| Materiality | Misstatement whose size or nature could change a reader's decision | You decide what to fix or disclose | core |
 | Non-GAAP measure | Metric adjusted away from GAAP, like adjusted EBITDA | You report a custom metric to investors | expert |
 
 ### Accrual accounting and revenue recognition
@@ -45,7 +45,8 @@ Financial and management accounting: recording transactions, closing the books, 
 | Variable consideration | Price parts that can change, like rebates or bonuses | You estimate uncertain contract revenue | expert |
 | SSP (standalone selling price) | Price of an item if sold on its own | You allocate a bundle's price | expert |
 | Point in time vs. over time | Revenue at transfer of control, or as work happens | You choose the recognition pattern | expert |
-| Contract asset / contract liability | Revenue earned before billing; billing before revenue earned | You present ASC 606 balances | expert |
+| Contract asset | Conditional right to payment for delivered work; not yet a receivable | You present ASC 606 balances; an unconditional right is a receivable | expert |
+| Contract liability | Payment received or due before the work is delivered | You present ASC 606 balances | expert |
 | Principal vs. agent | Whether you book revenue gross or net of supplier cost | You sell other parties' goods or services | expert |
 | Capitalize vs. expense | Record as an asset or as a cost now | You treat a purchase or software cost | core |
 | Depreciation / amortization | Spread a fixed or intangible asset's cost over its useful life | You account for equipment, software, or patents | core |
@@ -69,7 +70,7 @@ Financial and management accounting: recording transactions, closing the books, 
 | Bank reconciliation | Match the cash ledger to the bank statement | You check cash each month | core |
 | Flux analysis | Explain big balance changes against prior period | You review results before release | expert |
 | Cutoff | Record transactions in the correct period | You close a period or prepare for audit | expert |
-| Intercompany eliminations | Remove transactions between related entities | You consolidate group results | expert |
+| Intercompany eliminations | Remove transactions between entities in the same consolidated group | You consolidate group results | expert |
 | Audit trail | Records that trace each entry to its source | You support entries for review or audit | core |
 
 ### Accounts payable and receivable
@@ -82,7 +83,7 @@ Financial and management accounting: recording transactions, closing the books, 
 | Three-way match | Check PO, receipt, and invoice agree before paying | You approve vendor payments | core |
 | Payment terms (Net 30, 2/10 net 30) | Due date and any early-payment discount | You set or read invoice terms | core |
 | AR aging report | Open invoices grouped by days past due | You manage collections | core |
-| Allowance for doubtful accounts | Estimate of receivables that will not be collected | You value AR on the balance sheet | core |
+| Allowance for doubtful accounts (allowance for credit losses under CECL) | Estimate of receivables that will not be collected | You value AR on the balance sheet | core |
 | Bad debt write-off | Remove an invoice you will not collect | You clear an uncollectible balance | core |
 | DSO (days sales outstanding) | Average days to collect from customers | You track collection speed | core |
 
@@ -90,27 +91,28 @@ Financial and management accounting: recording transactions, closing the books, 
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| COGS (cost of goods sold) | Direct cost of the products sold | You compute gross profit | core |
-| Gross profit (gross margin) | Revenue minus COGS | You judge product profitability | core |
+| COGS (cost of goods sold) | Inventory cost expensed when sold, including production overhead where it applies | You compute gross profit | core |
+| Gross profit | Revenue minus COGS, in currency | You judge product profitability | core |
+| Gross margin | Gross profit as a percent of revenue | You compare profitability across products or periods | core |
 | Perpetual vs. periodic inventory | Update stock with each sale, or count at period end | You choose an inventory system | expert |
 | FIFO (first in, first out) | Oldest stock costs flow to COGS first | You pick a cost flow method | core |
-| LIFO (last in, first out) | Newest stock costs flow to COGS first | You use US tax-driven costing | expert |
+| LIFO (last in, first out) (US) | Newest stock costs flow to COGS first | You use US tax-driven costing | expert |
 | Weighted average cost | Each unit carries the average cost of stock | You cost interchangeable goods | core |
 | LCNRV (lower of cost and net realizable value) | Write stock down when it is worth less than cost | You test inventory value at period end | expert |
 | Inventory turnover | COGS divided by average inventory | You judge how fast stock sells | core |
 | Landed cost | Purchase price plus freight, duty, and handling | You cost imported goods | expert |
-| FOB shipping point / destination | Point where ownership passes to the buyer | You set cutoff for goods in transit | expert |
+| FOB (free on board) shipping point / destination (US) | Point where ownership passes to the buyer | You set cutoff for goods in transit | expert |
 
 ### Sales tax, VAT, and tax basics
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| Sales tax | US state and local tax collected on sales | You sell to US customers | core |
-| Nexus | Link to a state that creates a duty to collect tax | You decide where to register | core |
-| Economic nexus | Nexus from sales or order count above a state threshold | You sell into states with no presence | core |
-| Marketplace facilitator | Platform that collects tax for its sellers | You sell through Amazon or similar | expert |
+| Sales tax (US) | US state and local tax collected on sales | You sell to US customers | core |
+| Nexus (US) | Link to a state that creates a duty to collect tax | You decide where to register | core |
+| Economic nexus (US) | Nexus from sales or order count above a state threshold | You sell into states with no presence | core |
+| Marketplace facilitator (US) | Platform that collects tax for its sellers | You sell through Amazon or similar | expert |
 | Taxability | Whether a product is taxed in a given place | You set up tax codes | expert |
-| Exemption certificate (resale certificate) | Buyer's document that removes sales tax | You sell to resellers or exempt groups | expert |
+| Exemption certificate (resale certificate) (US) | Buyer's document that removes sales tax | You sell to resellers or exempt groups | expert |
 | Filing and remittance | Submit the return and pay collected tax | You meet each registered jurisdiction's deadline | core |
 | VAT (value-added tax) | Consumption tax charged at each stage of sale | You sell in the UK, EU, or similar | core |
 | Output VAT / input VAT | VAT charged on sales; VAT paid on purchases | You prepare a VAT return | core |
@@ -122,17 +124,17 @@ Financial and management accounting: recording transactions, closing the books, 
 |---|---|---|---|
 | Internal controls | Processes that prevent or catch errors and fraud | You design finance processes | core |
 | SoD (segregation of duties) | No one person handles a transaction end to end | You assign finance roles | core |
-| COSO framework | Standard model for designing internal controls | You build or assess a control system | expert |
+| COSO (Committee of Sponsoring Organizations) framework | Standard model for designing internal controls | You build or assess a control system | expert |
 | ICFR (internal control over financial reporting) | Controls that keep the financial statements reliable | You prepare for a SOX or audit review | expert |
-| SOX (Sarbanes-Oxley Act) | US law requiring control testing at public companies | You prepare for an IPO or public reporting | expert |
+| SOX (Sarbanes-Oxley Act) (US) | US law requiring control testing at public companies | You prepare for an IPO or public reporting | expert |
 | Material weakness | Control gap that could let a material error through | You report control failures | expert |
 | RCM (risk and control matrix) | Table linking each risk to the control that covers it | You document controls | expert |
 | Financial statement assertions | Claims like existence, completeness, and valuation | You plan audit tests | expert |
 | PBC list (prepared by client) | Auditor's list of documents the company must provide | You prepare for an audit | expert |
 | Test of controls vs. substantive testing | Check that controls work, or check the balances directly | You plan or support audit work | expert |
-| Audit opinion (unqualified / qualified) | Auditor's conclusion on whether statements are fair | You read or plan for audit results | expert |
-| Audit vs. review vs. compilation | Three levels of CPA assurance, from most to least | You choose what a lender or investor needs | expert |
-| SOC 1 / SOC 2 report | Auditor report on a service provider's controls | A customer or auditor asks about your controls | expert |
+| Audit opinion (unmodified or clean / qualified / adverse / disclaimer) | Auditor's conclusion on whether statements are fair | You read or plan for audit results | expert |
+| Audit vs. review vs. compilation | Audit: reasonable assurance; review: limited; compilation: none | You choose what a lender or investor needs | expert |
+| SOC (System and Organization Controls) 1 / SOC 2 report | Auditor report on a service provider's controls | A customer or auditor asks about your controls | expert |
 
 ### Management and cost accounting
 
@@ -149,38 +151,38 @@ Financial and management accounting: recording transactions, closing the books, 
 | Standard cost | Expected cost per unit used as a benchmark | You set targets for production cost | expert |
 | Price and quantity variance | Cost gap from rates paid vs. amounts used | You explain production cost overruns | expert |
 | Flexible budget | Budget restated for the actual activity level | You compare costs fairly at a new volume | expert |
-| Master budget | Linked set of operating and financial budgets | You build the full annual budget | expert |
+| Master budget | Linked set of operating and financial budgets | You build the full annual budget | core |
 
 ## Phrasebook
 
 | Generic words | Trade words |
 |---|---|
 | do the books | record transactions and post journal entries to the GL |
-| finish the month | month-end close against a close checklist |
+| finish the month | month-end close |
 | check the bank matches | bank reconciliation |
-| check the numbers are right | account reconciliations and flux analysis |
+| check the numbers are right | review of the books (account reconciliations or flux analysis) |
 | list of our accounts | chart of accounts (CoA) |
 | money customers owe us | accounts receivable (AR) |
 | bills we have to pay | accounts payable (AP) |
 | who is late paying us | AR aging report |
-| customers who will never pay | allowance for doubtful accounts; bad debt write-off |
-| make sure we only pay real bills | three-way match against the PO and receipt |
+| customers who will never pay | uncollectible receivables; allowance for doubtful accounts |
+| make sure we only pay real bills | AP invoice approval controls (or three-way match) |
 | costs we owe but have no bill for yet | accrued expenses |
-| money paid upfront for a subscription | deferred revenue, recognized ratably |
+| money paid upfront for a subscription | seller: deferred revenue (contract liability); buyer: prepaid expense |
 | when we can count the sale | revenue recognition under ASC 606 or IFRS 15 |
 | split a bundle deal into parts | identify performance obligations and allocate by SSP |
 | spread the cost of equipment over years | capitalize and depreciate over useful life |
 | what it cost to make what we sold | COGS (cost of goods sold) |
-| value of our stock on hand | inventory valued at FIFO or weighted average cost, at LCNRV |
-| which states we owe sales tax in | nexus study (physical and economic nexus) |
+| value of our stock on hand | inventory valuation |
+| which states we owe sales tax in | sales tax nexus (physical and economic) |
 | pay the tax we collected | file and remit sales tax or VAT |
-| business-to-business VAT across borders | reverse charge |
+| business-to-business VAT across borders | cross-border VAT: place of supply rules (reverse charge where it applies) |
 | stop one person controlling everything | segregation of duties (SoD) |
 | get ready for the auditors | audit readiness: PBC list, reconciliations, support for JEs |
 | documents the auditors want | PBC (prepared by client) list |
 | how much we need to sell to cover costs | break-even point from CVP analysis |
 | cost per product including overhead | fully absorbed cost with overhead allocation (or ABC) |
-| why costs were higher than planned | price and quantity variances against standard cost |
+| why costs were higher than planned | cost variance analysis (price and quantity variances, if standard costing) |
 | combine results from all our companies | consolidation with intercompany eliminations |
 
 ## Deliverable shapes
@@ -213,7 +215,7 @@ Financial and management accounting: recording transactions, closing the books, 
 | Write-off vs. write-down | Write-off removes the full amount; write-down reduces it | use the one that matches the amount |
 | Audit (for any CPA work) | Review and compilation give less assurance | audit, review, or compilation |
 | Lower of cost or market (for FIFO stock) | Replaced by LCNRV under ASU 2015-11 for most methods | LCNRV (lower of cost and net realizable value) |
-| ASC 605 / IAS 18 | Old revenue rules, replaced in 2018 | ASC 606 / IFRS 15 |
+| ASC 605 / IAS 18 | Old revenue rules, replaced from 2018 (2019 for US private companies) | ASC 606 / IFRS 15 |
 | LIFO under IFRS | IFRS does not permit LIFO | FIFO or weighted average cost |
 | Sales tax (for UK or EU) | These places use VAT, which works differently | VAT |
 
@@ -246,3 +248,6 @@ Financial and management accounting: recording transactions, closing the books, 
 - Month-end close checklist, Dokka. https://dokka.com/month-end-close-checklist/ (practitioner writing; read through search results)
 - Month-end close process checklist, Cube. https://www.cubesoftware.com/blog/month-end-close-process-checklist (practitioner writing; read through search results)
 - Staff accountant postings (month-end close, JEs, reconciliations, NetSuite), Paylocity and CareerBuilder listings. https://recruiting.paylocity.com/Recruiting/Jobs/Details/3822372 (usage check)
+- IAS 2 Inventories, IFRS Foundation. https://www.ifrs.org/issued-standards/list-of-standards/ias-2-inventories/ (standard)
+- What is the difference among a compilation, review, and audit, AICPA-CIMA. https://www.aicpa-cima.com/professional-insights/video/what-is-the-difference-among-a-compilation-review-and-audit (body of knowledge; search result)
+- ASU 2016-13 current expected credit loss effective for private companies in 2023, Weinstein Spira. https://cpa-wfy.com/asu-2016-13-current-expected-credit-loss-effective-for-private-companies-in-2023/ (practitioner writing; search result)

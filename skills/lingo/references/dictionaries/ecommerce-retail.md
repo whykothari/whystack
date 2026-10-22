@@ -39,8 +39,8 @@ E-commerce and retail covers how a brand or retailer lists, prices, sells, ships
 | CRO (conversion rate optimization) | Test-driven work to raise the conversion rate | You plan site changes and tests | core |
 | PDP (product detail page) | Page for one product with its buy button | You improve product pages | core |
 | PLP (product listing page) | Page that lists many products, like a collection | You improve browsing | core |
-| AOV (average order value) | Revenue divided by number of orders | You work on basket size | core |
-| RPV (revenue per visitor) | Revenue divided by visitors or sessions | You judge a test that moves CVR and AOV | expert |
+| AOV (average order value) | Order revenue divided by orders; state if tax and shipping included | You work on basket size | core |
+| RPV (revenue per visitor) | Revenue divided by unique visitors; state it if you use sessions | You judge a test that moves CVR and AOV | expert |
 | Add-to-cart rate | Share of sessions that add an item to the cart | You look for product page problems | core |
 | Checkout conversion rate | Share of started checkouts that become orders | You fix checkout friction | core |
 | Cart abandonment rate | Share of carts left without an order | You size recovery work | core |
@@ -62,8 +62,8 @@ E-commerce and retail covers how a brand or retailer lists, prices, sells, ships
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| LTV (customer lifetime value) | Total revenue or margin a customer brings over time | You set how much to pay per customer | core |
-| LTV:CAC ratio | Lifetime value divided by customer acquisition cost | You check unit economics | core |
+| LTV (customer lifetime value, gross margin basis) | Gross profit from one customer over a stated horizon or lifetime | You set how much to pay per customer | core |
+| LTV:CAC ratio (lifetime value to customer acquisition cost) | Lifetime value divided by customer acquisition cost | You check unit economics | core |
 | Repeat purchase rate | Share of customers who order more than once | You judge retention | core |
 | Second-order rate | Share of first-time buyers who order again | You find the main retention gap | expert |
 | Cohort retention | Repeat buying of customers grouped by first-order month | You track LTV curves over time | core |
@@ -81,30 +81,30 @@ E-commerce and retail covers how a brand or retailer lists, prices, sells, ships
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| COGS (cost of goods sold) | Direct cost of the products that you sold | You compute margin | core |
+| COGS (cost of goods sold) | Inventory cost expensed when sold, including production overhead where it applies | You compute margin | core |
 | Landed cost | Unit cost plus freight, duty, and import fees | You price imported goods | expert |
-| Gross margin | Revenue minus COGS, as a share of revenue | You judge product profit | core |
-| Contribution margin | Revenue minus all variable costs, such as shipping and ads | You decide if a sale or ad pays | core |
+| Gross margin | Gross profit as a percent of revenue | You judge product profit | core |
+| Contribution margin | Revenue minus variable costs; state if ad spend is included | You decide if a sale or ad pays | core |
 | Markup | Amount added to cost to reach the selling price | You set retail prices | core |
 | Keystone pricing | Retail price set at double the wholesale cost | You price for wholesale and retail | expert |
 | MSRP (manufacturer's suggested retail price) | Price the brand recommends that retailers charge | You set list prices | core |
 | MAP (minimum advertised price) | Lowest price a reseller may show in ads | You protect price across retailers | expert |
 | Compare-at price | Original price shown struck through next to sale price | You show a discount on the page | core |
-| Markdown | Permanent price cut to clear stock | You clear slow or seasonal inventory | core |
+| Markdown | Price cut from original retail, often permanent, to clear stock | You clear slow or seasonal inventory | core |
 | Discount code | Code that applies a discount at checkout | You run a targeted promotion | core |
 | BXGY (buy X get Y) | Free or cheaper item when buying another | You move units or bundle products | core |
 | Tiered discount | Bigger discount at higher spend or quantity | You raise AOV in a sale | expert |
 | Promo depth | Size of a discount as a share of price | You weigh promo cost against volume | expert |
 | Price elasticity | How much demand changes when price changes | You test or plan a price move | expert |
-| BFCM (Black Friday Cyber Monday) | Peak sale weekend in late November | You plan peak season | core |
+| BFCM (Black Friday Cyber Monday) | Peak sale period from Black Friday through Cyber Monday | You plan peak season | core |
 
 ### Inventory and retail metrics
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| Sell-through rate | Units sold divided by units received in a period | You judge if a product is selling | core |
-| Inventory turnover (turns) | Times stock sells and is replaced in a period | You judge inventory efficiency | core |
-| GMROI (gross margin return on inventory investment) | Gross margin earned per dollar of average inventory cost | You compare categories or products | expert |
+| Sell-through rate | Units sold over units received, or over units available | You judge if a product is selling | core |
+| Inventory turnover (turns) | Times stock sells through in a period: COGS over average inventory | You judge inventory efficiency | core |
+| GMROI (gross margin return on inventory investment) | Gross margin dollars per dollar of average inventory cost | You compare categories or products | expert |
 | Weeks of supply | How long current stock lasts at the current sales rate | You plan reorders | core |
 | Stockout (OOS, out of stock) | Item has no sellable units left | You track lost sales | core |
 | Reorder point | Stock level that triggers a new purchase order | You set buying rules | core |
@@ -126,7 +126,7 @@ E-commerce and retail covers how a brand or retailer lists, prices, sells, ships
 | Pick and pack | Pull ordered items from shelves and pack them | You price or audit fulfillment | core |
 | Kitting | Combining several items into one SKU before shipping | You sell bundles or gift sets | expert |
 | ASN (advance shipping notice) | Notice to the warehouse of incoming stock | You send inventory to a 3PL | expert |
-| DIM weight (dimensional weight) | Billable weight based on package size | You cut shipping costs | expert |
+| DIM weight (dimensional weight) | Size-based weight; carriers bill it when above actual weight | You cut shipping costs | expert |
 | Shipping zones | Distance bands that set carrier rates | You place inventory or set rates | expert |
 | Fulfillment SLA (service level agreement) | Promised time from order to shipment | You hold a 3PL to targets | core |
 | Last-mile delivery | Final leg from local hub to the customer's door | You set the delivery promise | core |
@@ -160,30 +160,30 @@ E-commerce and retail covers how a brand or retailer lists, prices, sells, ships
 |---|---|
 | more sales from the product page | lift PDP conversion rate |
 | get people to spend more per order | raise AOV (average order value) |
-| people leave without buying | high cart abandonment or checkout drop-off |
+| people leave without buying | low CVR; drop-off by funnel step (browse, cart, or checkout) |
 | get people to buy again | raise repeat purchase rate and second-order rate |
 | how much a customer is worth | customer lifetime value (LTV) |
 | different sizes and colors | variants, each with its own SKU |
 | product categories on the site | collections and product taxonomy |
 | recommend other products | cross-sell and upsell modules |
 | emails for people who left their cart | abandoned cart flow |
-| customers who have not bought in a while | lapsed customers; win-back flow |
+| customers who have not bought in a while | lapsed customers |
 | sale or discount | promotion (amount off, BXGY, tiered) or markdown |
 | profit after shipping and ads | contribution margin per order |
 | real cost of the product once it arrives | landed cost |
-| other sites sell it too cheap | MAP (minimum advertised price) violation |
+| other sites sell it too cheap | price undercutting (possible MAP violation or unauthorized resellers) |
 | products that do not sell | slow movers, dead stock, low sell-through |
 | how fast stuff sells | sell-through rate and inventory turns |
 | is our inventory earning its keep | GMROI |
 | we ran out | stockout (OOS) |
-| how much stock to order | reorder point and safety stock from a demand forecast |
+| how much stock to order | order quantity (EOQ or forecast-based) |
 | how much we can spend on stock | open-to-buy (OTB) |
 | a company that ships orders for us | 3PL (third-party logistics) |
 | big boxes cost too much to ship | DIM weight pricing |
-| handle returns | returns process with RMA and disposition rules |
+| handle returns | returns management (reverse logistics) |
 | people wear it then return it | wardrobing, return fraud |
-| sell to shops | wholesale with a line sheet, MOQ, and net terms |
-| sell on Amazon | marketplace channel; win the Featured Offer, choose FBA or self-fulfill |
+| sell to shops | wholesale (selling to retailers) |
+| sell on Amazon | Amazon marketplace channel (FBA or seller-fulfilled) |
 
 ## Deliverable shapes
 
@@ -193,7 +193,7 @@ E-commerce and retail covers how a brand or retailer lists, prices, sells, ships
 | CRO test plan | hypothesis, page and element, variants, primary metric (CVR or RPV), guardrail metrics (AOV, margin), traffic split, sample size, run time, decision rule |
 | Promotion plan | dates, offer mechanic, eligible SKUs and exclusions, promo depth, margin impact, inventory check, channels, success metrics |
 | Assortment plan | category, SKU count, breadth and depth, price points, hero SKUs, buy quantities, OTB, sell-through targets |
-| Inventory plan | SKU, demand forecast, on hand, on order, lead time, safety stock, reorder point, weeks of supply |
+| Inventory plan | SKU, demand forecast, on hand, on order, lead time, safety stock, reorder point, order quantity, weeks of supply |
 | Retention flow map | flows (welcome, abandoned cart, browse abandonment, post-purchase, replenishment, win-back), trigger, timing, exit condition, offer rules |
 | Returns policy | return window, eligible items, condition rules, refund, exchange, or store credit, who pays return shipping, RMA steps, exceptions |
 | 3PL SLA and fee schedule | receiving time, order cut-off, ship-time SLA, pick accuracy, packaging specs, kitting, returns handling, fees (pick, storage, shipping) |
@@ -251,3 +251,6 @@ E-commerce and retail covers how a brand or retailer lists, prices, sells, ships
 - Trust badges, Kinsta. https://kinsta.com/blog/trust-badges/ (practitioner writing)
 - Buy now, pay later frequently asked questions, Consumer Financial Protection Bureau. https://files.consumerfinance.gov/f/documents/cfpb_BNPL-frequently-asked-questions.pdf (body of knowledge)
 - Buy Now, Pay Later: Policy Issues and Options for Congress (R48858), Congressional Research Service. https://www.everycrsreport.com/files/2026-02-18_R48858_ff6a61f61022347480affb93afe0f3c6ca2be927.html (body of knowledge)
+- Your average order value now has a new definition in Shopify, Shopify Changelog. https://changelog.shopify.com/posts/your-average-order-value-now-has-a-new-definition-in-shopify (tool docs)
+- Economic order quantity and reorder calculation (IC120), Infor Documentation. https://docs.infor.com/lwsnapps/10.1/en-us/lwsncsolh/ichs/ic120.html (tool docs)
+- IAS 2 Inventories, IFRS Foundation. https://www.ifrs.org/issued-standards/list-of-standards/ias-2-inventories/ (standard)

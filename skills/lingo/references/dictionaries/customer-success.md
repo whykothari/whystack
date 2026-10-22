@@ -38,7 +38,7 @@ The post-sale work of getting customers to value, keeping and growing them, and 
 | Onboarding | Getting a new customer set up and using the product | You plan the first weeks after signature | core |
 | Implementation | Technical setup, configuration, and data migration | The product needs setup work | core |
 | Go-live | Date the customer starts real use | You set onboarding deadlines | core |
-| TTV (time to value) | Time from signature until the customer gets value | You judge onboarding speed | core |
+| TTV (time to value) | Time from signing to first value (some measure to full value) | You judge onboarding speed | core |
 | Activation | Customer completes the key first actions | You measure early success | expert |
 | Adoption | How fully the customer uses the product | You track usage health | core |
 | Customer enablement | Training that helps customer users work well with the product | You plan adoption work | core |
@@ -58,7 +58,7 @@ The post-sale work of getting customers to value, keeping and growing them, and 
 | Cadence call | Regular, scheduled check-in with the customer | You keep engagement steady | core |
 | QBR (quarterly business review) | Quarterly meeting on value delivered, results, and plans | You show value to the customer | core |
 | EBR (executive business review) | Strategic review with customer executives | You secure executive support | expert |
-| Executive sponsor | Senior customer leader who backs the program | You reduce single-contact risk | expert |
+| Executive sponsor | Senior leader who backs the account relationship, on either side | You reduce single-contact risk | expert |
 | Customer journey (lifecycle stages) | Defined stages a customer moves through | You map touchpoints and owners | core |
 | Value realization | Customer actually gets the promised business results | You prove ROI | expert |
 
@@ -67,7 +67,7 @@ The post-sale work of getting customers to value, keeping and growing them, and 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
 | Churn | Customers or revenue lost when they leave | You measure retention | core |
-| Logo churn | Share of customer accounts lost in a period | You count lost customers | core |
+| Logo churn | Accounts lost in a period, as share of starting accounts | You count lost customers | core |
 | Revenue churn (gross dollar churn) | Recurring revenue lost to cancellations and downgrades | You measure revenue loss | core |
 | Contraction (downsell) | Revenue drop from a smaller plan or fewer seats | You track partial loss | core |
 | GRR (gross revenue retention) | Starting revenue kept after churn and downgrades, no expansion | You judge pure retention | core |
@@ -92,7 +92,8 @@ The post-sale work of getting customers to value, keeping and growing them, and 
 | Ticket status | Stage of a ticket, such as new, open, pending, solved | You design workflows | core |
 | Queue | List of tickets that wait for one team | You route work | core |
 | Triage | Sort tickets by type, priority, and owner | You handle inbound volume | core |
-| Priority (severity) | Rank of urgency and business impact | You set the order of work | core |
+| Severity | How large an issue's impact is on the customer | You classify how bad an issue is | core |
+| Priority | Order of work, set from impact (severity) and urgency | You set the order of work | core |
 | Routing (skills-based routing) | Send each ticket to an agent with the right skills | You cut transfers | expert |
 | Tiered support (Tier 1, 2, 3) | Support levels by skill and issue complexity | You design escalation paths | core |
 | Escalation | Move a ticket to more skill or authority | The frontline cannot resolve it | core |
@@ -109,18 +110,19 @@ The post-sale work of getting customers to value, keeping and growing them, and 
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| SLA (service level agreement) | Promised response and resolution times for customers | You set service commitments | core |
+| SLA (service level agreement) | Promised service targets, such as response time or uptime | You set service commitments | core |
 | OLA (operational level agreement) | Internal agreement between teams that supports the SLA | Several teams work one ticket | expert |
 | SLA breach | Missed SLA target on a ticket | You report service failures | core |
-| FRT (first response time) | Time from ticket creation to first agent reply | You measure responsiveness | core |
+| FRT (first response time) | Ticket creation to first agent reply, in business or calendar hours | You measure responsiveness | core |
 | Next reply time | Time from oldest unanswered customer message to agent reply | You track responsiveness after the first reply | expert |
-| Resolution time (time to resolution) | Time from ticket creation until it is solved | You measure speed to fix | core |
-| FCR (first contact resolution) | Share of issues solved in the first contact | You judge efficiency and experience | core |
+| Resolution time (time to resolution) | Ticket creation until solved, in business or calendar hours | You measure speed to fix | core |
+| FCR (first contact resolution) | Share of issues solved on first contact (gross or net basis) | You judge efficiency and experience | core |
 | One-touch resolution | Ticket solved with a single agent reply | You measure simple-ticket efficiency | expert |
 | AHT (average handle time) | Average agent work time per contact | You staff phone or chat teams | core |
 | Reopen rate | Share of solved tickets that customers reopen | You check fix quality | expert |
-| Ticket volume (contact rate) | Number of tickets per period or per customer | You forecast staffing | core |
-| CSAT (customer satisfaction score) | Rating a customer gives after an interaction | You measure service quality | core |
+| Ticket volume | Count of tickets in a period | You forecast staffing | core |
+| Contact rate | Contacts per customer or per order in a period | You check if support demand grows faster than the business | expert |
+| CSAT (customer satisfaction score) | Share of survey replies rating satisfied, often 4-5 of 5 | You measure service quality | core |
 | CES (customer effort score) | How easy the customer found getting help | You find friction | expert |
 | QA score (quality assurance) | Internal review score of how well an agent handled tickets | You coach agents | expert |
 
@@ -146,7 +148,7 @@ The post-sale work of getting customers to value, keeping and growing them, and 
 | NPS (Net Promoter Score) | Percent promoters minus percent detractors | You track loyalty | core |
 | Promoters, passives, detractors | NPS groups that score 9-10, 7-8, and 0-6 | You segment survey results | core |
 | Relationship vs transactional survey | Periodic survey versus survey after one interaction | You choose a survey type | expert |
-| Closed-loop feedback | Follow up with each respondent and act on their input | You run NPS or CSAT programs | expert |
+| Closed-loop feedback | Follow up with respondents and act on their input | You run NPS or CSAT programs | expert |
 | Inner loop / outer loop | Frontline follow-up versus company-wide root-cause fixes | You design a feedback system | expert |
 | Contact driver (contact reason) | Main reason customers get in touch | You cut avoidable contacts | expert |
 | Feature request | Customer ask for new product capability | You route feedback to product | core |
@@ -156,33 +158,33 @@ The post-sale work of getting customers to value, keeping and growing them, and 
 
 | Generic words | Trade words |
 |---|---|
-| help new customers get started | onboarding plan with kickoff, implementation, and go-live |
+| help new customers get started | customer onboarding |
 | how fast customers see results | TTV (time to value) |
-| make sure they actually use it | drive adoption against the success plan |
-| what the customer wants to achieve | desired outcomes in a success plan |
-| check which customers are happy | customer health score with RAG status |
-| customers who might leave | at-risk accounts; run a save play |
-| customers leaving | logo churn and revenue churn |
-| how much revenue we keep | GRR (gross revenue retention) |
+| make sure they actually use it | drive product adoption |
+| what the customer wants to achieve | desired outcomes |
+| check which customers are happy | customer health (or satisfaction: CSAT, NPS) |
+| customers who might leave | at-risk accounts (churn risk) |
+| customers leaving | churn (logo churn or revenue churn) |
+| how much revenue we keep | GRR (gross revenue retention), or NRR if expansion counts |
 | keep and grow revenue from customers | NRR (net revenue retention) |
 | sell more to current customers | expansion: upsell and cross-sell |
-| contracts coming up | ATR (available to renew) by quarter |
+| contracts coming up | upcoming renewals (ATR, available to renew) |
 | quarterly meeting with the client | QBR (quarterly business review) |
-| meeting with their bosses | EBR (executive business review) with the executive sponsor |
+| meeting with their bosses | EBR (executive business review) |
 | who gets a dedicated person | segmentation: high-touch, low-touch, tech-touch |
-| a customer complaint or question | ticket, triaged by priority |
-| send to someone more senior | escalate to Tier 2 or engineering |
-| promise to answer within a set time | SLA with first response and resolution targets |
+| a customer complaint or question | support ticket (case) |
+| send to someone more senior | escalate (to a higher tier or a manager) |
+| promise to answer within a set time | first response SLA target |
 | how fast we answer | FRT (first response time) |
 | fix it in one go | FCR (first contact resolution) |
 | saved replies | macros |
 | ask customers if they were happy | post-interaction CSAT survey |
-| how loyal customers are | NPS (Net Promoter Score), relationship survey |
+| how loyal customers are | customer loyalty (NPS or a relationship survey) |
 | help articles | knowledge base and help center |
-| let customers help themselves | self-service; track deflection rate |
-| why people contact us | contact drivers from ticket tags |
-| listen to customer feedback | VoC program with closed-loop follow-up |
-| the site is down | major incident |
+| let customers help themselves | self-service |
+| why people contact us | contact drivers (contact reasons) |
+| listen to customer feedback | VoC (voice of the customer) program |
+| the site is down | outage (incident; major incident if widespread) |
 
 ## Deliverable shapes
 
@@ -245,3 +247,6 @@ The post-sale work of getting customers to value, keeping and growing them, and 
 - The account rescuer: at-risk client recovery, ScalePad. https://www.scalepad.com/platform/recipes/the-account-rescuer-at-risk-client-recovery (tool docs)
 - The customer apology message guide, eesel AI. https://www.eesel.ai/blog/apology-message-to-customer (tool docs)
 - The best way to apologize to customers, Corporate Visions. https://tourial.corporatevisions.com/answers/the-best-way-to-apologize-to-customers-backed-by-science (practitioner research)
+- Bug severity vs priority, Marker.io. https://marker.io/blog/bug-severity-vs-priority (tool docs)
+- Contact rate, Fin (Intercom) glossary. https://fin.ai/glossary/contact-rate (tool docs; search result)
+- What is contacts per order (CPO), Gladly. https://www.gladly.ai/glossary/contacts-per-order/ (tool docs; search result)

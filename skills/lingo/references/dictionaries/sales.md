@@ -38,7 +38,7 @@ The work of finding buyers, qualifying them, running deals to signature, and for
 | Lead | Contact who may buy but is not yet checked | You talk about top-of-funnel volume | core |
 | Prospect | Lead that fits the ICP and is worth pursuing | You narrow leads to active targets | core |
 | MQL (marketing qualified lead) | Lead that marketing judges ready for sales | You set the marketing-to-sales hand-off | core |
-| SQL (sales qualified lead) | Lead that sales accepts as a real opportunity | You count pipeline that sales owns | core |
+| SQL (sales qualified lead) | Lead that sales has vetted as a likely real opportunity | You count pipeline that sales owns | core |
 | Lead scoring | Points given to leads for fit and behavior | You rank leads for follow-up | core |
 | Sequence (cadence) | Planned series of emails, calls, and social touches | You design multi-step outbound outreach | core |
 | Trigger event | Change at an account that creates a reason to buy | You time outreach to a real reason | expert |
@@ -54,7 +54,7 @@ The work of finding buyers, qualifying them, running deals to signature, and for
 | Qualification | Checking that a prospect can and will buy | You decide where reps spend time | core |
 | BANT (budget, authority, need, timeline) | Four quick checks that a lead can buy | You need fast early-stage screening | core |
 | MEDDIC (metrics, economic buyer, decision criteria, decision process, identify pain, champion) | Six-part checklist for complex B2B deals | You qualify long, multi-stakeholder deals | expert |
-| MEDDPICC | MEDDIC plus paper process and competition | Procurement and rivals add deal risk | expert |
+| MEDDPICC (metrics, economic buyer, decision criteria, decision process, paper process, identify pain, champion, competition) | MEDDIC plus paper process and competition | Procurement and rivals add deal risk | expert |
 | SPICED (situation, pain, impact, critical event, decision) | Discovery frame built for recurring-revenue sales | You sell subscriptions and plan for renewal | expert |
 | Metrics (in MEDDIC) | Measured business gain the buyer expects | You build the value case | expert |
 | Identify pain | Find the business problem that costs the buyer | You frame why they must act | core |
@@ -111,18 +111,18 @@ The work of finding buyers, qualifying them, running deals to signature, and for
 | Quota attainment | Percent of quota a rep closed | You judge rep performance | core |
 | OTE (on-target earnings) | Base pay plus commission at full quota | You design or post a sales role | core |
 | Comp plan (compensation plan) | Rules that turn closed deals into rep pay | You design incentives | core |
-| Pipeline coverage | Open pipeline divided by remaining quota | You test if the target is reachable | core |
-| Win rate | Won deals divided by all closed deals | You forecast and judge deal quality | core |
-| Sales cycle length | Average days from opportunity open to close | You plan capacity and forecasts | core |
+| Pipeline coverage | Open pipeline due this period divided by remaining quota | You test if the target is reachable | core |
+| Win rate | Won deals divided by won plus lost; state count or value | You forecast and judge deal quality | core |
+| Sales cycle length | Average days from opportunity creation to close, for won deals | You plan capacity and forecasts | core |
 | Average deal size | Mean value of won deals | You model revenue | core |
 | Sales velocity | Deals times win rate times size, divided by cycle days | You find which lever to pull | expert |
 | Forecast category | Confidence bucket such as pipeline, best case, commit | You roll up a forecast | core |
 | Commit | Deals the rep stakes the forecast on | You call the number for the period | core |
 | Weighted pipeline | Each deal's value times its stage odds, summed | You build a simple forecast | expert |
 | Bookings | Value of contracts signed in a period | You report sales output | core |
-| ACV (annual contract value) | Yearly value of one contract | You compare deals of different lengths | core |
+| ACV (annual contract value) | Contract value per year; state if one-time fees count | You compare deals of different lengths | core |
 | ARR (annual recurring revenue) | Yearly value of all active subscriptions | You report subscription revenue | core |
-| CRM hygiene | Keeping deal data in the CRM complete and current | You need reports you can trust | core |
+| CRM (customer relationship management) hygiene | Keeping deal data in the CRM complete and current | You need reports you can trust | core |
 | RevOps (revenue operations) | Team that runs process, data, and tools across go-to-market | You fix cross-team process | expert |
 | Sales enablement | Training, content, and tools that help reps sell | You onboard or coach reps | core |
 
@@ -143,7 +143,7 @@ The work of finding buyers, qualifying them, running deals to signature, and for
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| Conversion rate (retail) | Share of visitors who buy | You judge store or floor selling | core |
+| Conversion rate (retail) | Transactions divided by store visitors (foot traffic count) | You judge store or floor selling | core |
 | ATV (average transaction value) | Revenue divided by number of transactions | You track basket value | core |
 | UPT (units per transaction) | Items sold divided by number of transactions | You measure add-on selling | core |
 | Upsell | Move the buyer to a higher-priced option | You raise order value | core |
@@ -156,18 +156,18 @@ The work of finding buyers, qualifying them, running deals to signature, and for
 
 | Generic words | Trade words |
 |---|---|
-| find people to sell to | build a prospect list against the ICP (ideal customer profile) |
-| the kind of company that buys from us | ICP and buyer personas |
-| send a bunch of cold emails | run a multi-touch outbound sequence |
-| follow up with people | add follow-up touches to the cadence |
+| find people to sell to | prospecting |
+| the kind of company that buys from us | ICP (ideal customer profile) |
+| send a bunch of cold emails | cold email outreach (an outbound email sequence) |
+| follow up with people | follow-up touches |
 | check if they are a real buyer | qualify with BANT or MEDDPICC |
 | the person who can say yes | economic buyer (EB) |
-| someone inside who likes us | champion |
+| someone inside who likes us | coach (or champion, if they have power and push for you) |
 | first sales meeting | discovery call |
-| figure out what is wrong for them | identify pain and quantify impact |
-| show them the product | run a tailored demo |
-| let them try it first | scope a POC (proof of concept) with success criteria |
-| plan to get the contract signed | mutual action plan (MAP) |
+| figure out what is wrong for them | identify pain |
+| show them the product | product demo |
+| let them try it first | free trial, pilot, or POC (proof of concept) |
+| plan to get the contract signed | close plan (or mutual action plan, if shared with the buyer) |
 | legal and buying paperwork | paper process and procurement |
 | deals we are working on | open pipeline by stage |
 | how many deals we will close | forecast: commit and best case |
@@ -177,13 +177,13 @@ The work of finding buyers, qualifying them, running deals to signature, and for
 | sales target | quota |
 | how much reps earn | OTE (on-target earnings) and comp plan |
 | deal keeps getting pushed | slippage |
-| they said it is too expensive | price objection; handle with value, then give-get |
-| our lowest acceptable deal | walk-away point and BATNA |
-| sell more to the same customer | upsell, cross-sell, land and expand |
-| sell through other companies | channel sales through resellers and referral partners |
-| stop partners fighting over deals | deal registration and rules of engagement |
-| why we lost the deal | win-loss analysis |
-| bigger in-store purchases | raise ATV and UPT through add-on selling |
+| they said it is too expensive | price objection |
+| our lowest acceptable deal | walk-away point (reservation price) |
+| sell more to the same customer | account expansion (upsell or cross-sell) |
+| sell through other companies | channel sales (resellers or referral partners) |
+| stop partners fighting over deals | prevent channel conflict (deal registration or rules of engagement) |
+| why we lost the deal | closed-lost reason (or win-loss analysis, across deals) |
+| bigger in-store purchases | raise ATV (or UPT) |
 
 ## Deliverable shapes
 
@@ -213,7 +213,6 @@ The work of finding buyers, qualifying them, running deals to signature, and for
 | ABC (always be closing) | Dated push-style advice that harms complex B2B deals | consultative selling with trial closes |
 | Solution selling (as the current best practice) | Older model; current practice leads with insight and value | consultative, challenger, or value selling |
 | MEDDIC as a sales process | It is a qualification checklist, not a full stage model | deal stages with exit criteria, qualified with MEDDIC |
-| Discovery session, MAP, POC in buyer-facing copy | Internal jargon that confuses buyers | plain words, for example "a short call to learn your needs" |
 
 ## Sources
 
@@ -235,6 +234,7 @@ The work of finding buyers, qualifying them, running deals to signature, and for
 - Outbound sales cadence, Apollo. https://www.apollo.io/insights/outbound-sales-cadence (tool docs)
 - Deal Registration and partnerships glossary, Track360. https://track360.io/glossary/deal-registration (tool docs)
 - What is Deal Registration?, Magentrix. https://www.magentrix.com/glossary/deal-registration (tool docs)
+- SQL vs SAL: sales qualified lead vs sales accepted lead, Breakcold. https://www.breakcold.com/whats-the-difference/sales-qualified-lead-sql-vs-sales-accepted-lead-sal (search result)
 - Retail store KPIs, Epos Now. https://www.eposnow.com/us/resources/retail-store-kpis (tool docs)
 - Senior Account Executive posting, Customer.io via Spectrum Equity careers. https://careers.spectrumequity.com/companies/customer-io/jobs/66307697-senior-account-executive (usage check)
 - Account Executive (SaaS) postings, Employment Hero. https://employmenthero.com/jobs/position/resonate-solutions-pty-limited-account-executive-saas-customer-experience-usa-remote-2egrf/ (usage check)

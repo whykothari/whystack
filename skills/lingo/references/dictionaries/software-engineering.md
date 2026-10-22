@@ -27,7 +27,7 @@ The design, build, delivery, and operation of software systems. Software enginee
 | ADR (architecture decision record) | Short record of one design decision and its reasons | You make a choice others will later question | expert |
 | C4 model | Four zoom levels of architecture diagram: context to code | You draw architecture for different readers | expert |
 | Horizontal scaling | Add more machines instead of bigger machines | You plan for more load | core |
-| Stateless service | Service keeps no client data between requests | You need easy scaling and restarts | core |
+| Stateless service | Service keeps no client session state between requests | You need easy scaling and restarts | core |
 | Strangler fig pattern | Replace a legacy system one piece at a time | You modernize old code without a full rewrite | expert |
 
 ### Delivery and DevOps
@@ -45,7 +45,7 @@ The design, build, delivery, and operation of software systems. Software enginee
 | Rollback | Return to the last known good version | A release causes errors | core |
 | IaC (infrastructure as code) | Define servers and networks in version-controlled files | You provision or change infrastructure | core |
 | Container | App packaged with its dependencies to run the same everywhere | You package and run services | core |
-| DORA metrics | Measures of delivery speed and stability from the DORA research | You measure or improve delivery performance | expert |
+| DORA (DevOps Research and Assessment) metrics | Measures of delivery speed and stability from the DORA research | You measure or improve delivery performance | expert |
 | Change lead time | Time from commit to running in production | You measure delivery speed | expert |
 | Change fail rate | Share of deploys that need a hotfix or rollback | You measure release quality | expert |
 | SemVer (semantic versioning) | MAJOR.MINOR.PATCH numbers that signal breaking changes | You version a library or API | core |
@@ -54,7 +54,7 @@ The design, build, delivery, and operation of software systems. Software enginee
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| SLI (service level indicator) | Measured share of good events out of all events | You choose what to measure about a service | core |
+| SLI (service level indicator) | Measure of service level, usually good events over all events | You choose what to measure about a service | core |
 | SLO (service level objective) | Target value for an SLI over a time window | You set a reliability goal | core |
 | SLA (service level agreement) | Contract with penalties if service targets are missed | Customers have a contractual promise | core |
 | Error budget | Allowed unreliability, equal to 100% minus the SLO | You balance release speed against stability | core |
@@ -86,7 +86,7 @@ The design, build, delivery, and operation of software systems. Software enginee
 | Test double (mock, stub, fake) | Stand-in object that replaces a real dependency in tests | A dependency is slow, costly, or unreliable | core |
 | Regression test | Checks old behavior still works after a change | You fix a bug or refactor | core |
 | Flaky test | Test that passes or fails with no code change | You triage unreliable CI results | core |
-| Code coverage | Share of code that the tests execute | You look for untested code | core |
+| Code coverage | Share of lines or branches that tests execute; state which | You look for untested code | core |
 | TDD (test-driven development) | Write a failing test first, then the code | You want design driven by tests | core |
 | Static analysis (linting) | Tools that find defects without running the code | You add automatic checks to CI | core |
 | Load test | Measures behavior under expected and peak traffic | You check capacity before a launch | core |
@@ -96,13 +96,13 @@ The design, build, delivery, and operation of software systems. Software enginee
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
 | Threat model | Structured list of what can go wrong and the fixes | You design or review a system for security | core |
-| STRIDE | Six threat types, from spoofing to elevation of privilege | You run a threat modeling session | expert |
+| STRIDE (spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege) | Six threat types, from spoofing to elevation of privilege | You run a threat modeling session | expert |
 | Attack surface | All the points where an attacker can try to get in | You reduce exposure | core |
 | Least privilege | Give each user or service only the access it needs | You set permissions | core |
 | AuthN and AuthZ (authentication and authorization) | Proving who you are versus what you may do | You design login and permissions | core |
 | RBAC (role-based access control) | Grant permissions by role instead of by person | You manage access at scale | core |
-| OWASP Top 10 | Ranked list of the most critical web app risks | You set a baseline for app security | core |
-| Injection (SQL injection, XSS) | Untrusted input that runs as code or a query | You handle user input | core |
+| OWASP (Open Worldwide Application Security Project) Top 10 | Ranked list of the most critical web app risks | You set a baseline for app security | core |
+| Injection (SQL injection, XSS, cross-site scripting) | Untrusted input that runs as code or a query | You handle user input | core |
 | Secrets management | Keep keys and passwords in a vault, not in code | You store credentials for services | core |
 | CVE (common vulnerabilities and exposures) | Public ID for a known security flaw | You track or patch vulnerable dependencies | core |
 | SBOM (software bill of materials) | Inventory of every component inside a piece of software | You manage dependency risk or compliance | expert |
@@ -115,14 +115,14 @@ The design, build, delivery, and operation of software systems. Software enginee
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| REST API | HTTP API built around resources and standard verbs | You design a web API | core |
+| REST (representational state transfer) API (application programming interface) | HTTP API built around resources and standard verbs | You design a web API | core |
 | OpenAPI spec | Machine-readable description of an HTTP API | You document, mock, or generate clients for an API | core |
 | Idempotency (idempotency key) | Repeating a request has the same effect as sending it once | Clients retry writes or payments | core |
-| Pagination | Return a large list in pages with a next link | An endpoint returns many items | core |
+| Pagination | Return a large list in pages, by cursor or offset | An endpoint returns many items | core |
 | Breaking change | Change that makes existing clients fail | You change an API or schema | core |
 | API versioning | Way to evolve an API without breaking existing clients | You plan API changes over time | core |
 | Rate limiting (throttling) | Cap requests per client per time window | You protect a service from overload or abuse | core |
-| ACID | Transactions are all-or-nothing, consistent, isolated, and durable | Data must stay correct under failures | core |
+| ACID (atomicity, consistency, isolation, durability) | Transactions are all-or-nothing, consistent, isolated, and durable | Data must stay correct under failures | core |
 | Isolation level | How much concurrent transactions can see each other's changes | You debug race conditions in a database | expert |
 | Index | Data structure that speeds lookups on columns | Queries are slow | core |
 | Normalization and denormalization | Remove duplicate data versus copy it for faster reads | You design a database schema | core |
@@ -143,7 +143,7 @@ The design, build, delivery, and operation of software systems. Software enginee
 | DoD (definition of done) | Shared checklist every item meets before it counts as done | You set a team quality bar | core |
 | Story points and velocity | Relative effort estimates; points finished per sprint | You estimate and forecast work | core |
 | Retrospective | Regular team meeting to improve how the team works | You close a sprint or project | core |
-| Kanban (WIP limit) | Visual flow board with a cap on work in progress | Work arrives continuously, not in batches | core |
+| Kanban (WIP, work in progress, limit) | Visual flow board with a cap on work in progress | Work arrives continuously, not in batches | core |
 | Code review (pull request, PR) | Peer check of a change before it merges | You merge any change | core |
 | Technical debt | Future cost from shortcuts or outdated design | You weigh speed now against cost later | core |
 | Refactoring | Change code structure without changing its behavior | Code is hard to change or understand | core |
@@ -152,31 +152,31 @@ The design, build, delivery, and operation of software systems. Software enginee
 
 | Generic words | Trade words |
 |---|---|
-| make the site not go down | define SLOs and an error budget; add redundancy and remove SPOFs (single points of failure) |
-| the site is slow | p99 latency is above the SLO |
-| how often it's up | availability against the SLO over a 28-day rolling window |
+| make the site not go down | high availability (HA) |
+| the site is slow | high latency (check p50 and p99 response times) |
+| how often it's up | availability over a stated time window |
 | ship faster | raise deployment frequency and cut change lead time |
-| releases keep breaking things | high change fail rate; add canary releases and automated rollback |
-| turn a feature on for some users | gate it behind a feature flag and do a percentage rollout |
-| test it properly | unit, integration, and E2E coverage per the test pyramid |
-| tests randomly fail | flaky tests; quarantine and fix them |
+| releases keep breaking things | high change fail rate |
+| turn a feature on for some users | feature flag with targeted (or percentage) rollout |
+| test it properly | test strategy across test levels (unit, integration, E2E) |
+| tests randomly fail | flaky tests |
 | write up what went wrong | blameless postmortem with timeline, contributing factors, and action items |
-| who fixes it at night | on-call rotation with runbooks and an escalation policy |
-| the code is messy | technical debt; plan a refactor with regression tests |
-| plan the big change first | write a design doc and record key choices in ADRs |
-| split the app into parts | define bounded contexts; extract services with the strangler fig pattern |
-| make it handle more users | scale horizontally behind a load balancer with stateless services |
-| don't charge twice if they click twice | make the endpoint idempotent with an idempotency key |
-| stop people spamming the API | add rate limiting per API key |
-| change the API without breaking apps | version the API; avoid breaking changes; publish a deprecation schedule |
-| make it secure | threat model with STRIDE; check against OWASP Top 10; apply least privilege |
-| check our libraries are safe | generate an SBOM and scan dependencies for CVEs |
-| keep passwords out of the code | move credentials to a secrets manager |
-| see what's going on in production | add observability: structured logs, metrics, and distributed traces |
-| back up so we don't lose data | set RTO and RPO; test backup restores |
+| who fixes it at night | on-call rotation and escalation policy |
+| the code is messy | poor code quality (technical debt) |
+| plan the big change first | design doc (RFC) before the build |
+| split the app into parts | decompose the monolith (into modules or services) |
+| make it handle more users | scalability (horizontal or vertical scaling) |
+| don't charge twice if they click twice | idempotent payment requests (idempotency key or deduplication) |
+| stop people spamming the API | rate limiting (or throttling) |
+| change the API without breaking apps | backward-compatible API changes (or API versioning) |
+| make it secure | security review (or security hardening) |
+| check our libraries are safe | dependency vulnerability scanning (SCA, software composition analysis) |
+| keep passwords out of the code | secrets management (no hardcoded credentials) |
+| see what's going on in production | observability (or monitoring) in production |
+| back up so we don't lose data | backup and restore plan with a target RPO (recovery point objective) |
 | set up servers by script | provision with IaC |
-| check each other's code | code review on every PR, with required approvals |
-| the database gets corrupted under load | race condition; review the transaction isolation level |
+| check each other's code | code review of pull requests (PRs) |
+| the database gets corrupted under load | investigate whether a race condition or the transaction isolation level causes it |
 
 ## Deliverable shapes
 

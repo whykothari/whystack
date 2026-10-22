@@ -24,7 +24,7 @@ The work of researching how people use a product and designing its structure, be
 | Semi-structured interview | Interview with a set guide but room to probe | You run qualitative user interviews | core |
 | Diary study | Participants log their experience over days or weeks | You study long or repeated behavior | expert |
 | Research plan | Goals, questions, method, participants, and schedule for a study | You get a study approved and staffed | core |
-| Screener | Questions that filter in the right participants | You recruit for a study | expert |
+| Screener | Questions that filter in the right participants | You recruit for a study | core |
 | Discussion guide | Script of tasks and questions for a session | You prepare interviews or tests | core |
 | Persona | Research-based profile of a key user group | You keep design choices tied to real users | core |
 | Proto-persona | Persona built from team assumptions, not research | You start fast and flag what needs validation | expert |
@@ -78,7 +78,7 @@ The work of researching how people use a product and designing its structure, be
 | Visual hierarchy | Order of importance shown by size, color, and placement | You guide the eye to the main action | core |
 | Layout grid (columns, gutters, margins) | Column structure that aligns content | You lay out screens consistently | core |
 | Spacing scale (8-point grid) | Spacing set in multiples of a base unit | You keep spacing consistent across screens | core |
-| Type scale | Fixed set of font sizes in a set ratio | You define typography styles | core |
+| Type scale | Fixed set of font sizes, often built from a ratio | You define typography styles | core |
 | Gestalt principles | Rules for how people see items as groups | You group related elements by proximity or similarity | expert |
 | Responsive design | Layout that adapts to screen size | You design for web across devices | core |
 | Breakpoint | Screen width where the layout changes | You spec responsive behavior | core |
@@ -117,7 +117,7 @@ The work of researching how people use a product and designing its structure, be
 | WCAG (Web Content Accessibility Guidelines) | W3C standard for accessible web content | You set accessibility requirements | core |
 | WCAG conformance level (A, AA, AAA) | Three tiers of success criteria to meet | You state the target, usually WCAG 2.2 AA | core |
 | POUR (perceivable, operable, understandable, robust) | The four principles behind WCAG | You structure an accessibility review | expert |
-| Contrast ratio | Lightness difference between text and background | You check text color (AA needs 4.5:1 for body text) | core |
+| Contrast ratio | Luminance ratio between text and its background | You check text color (AA needs 4.5:1 for body text) | core |
 | Target size | Minimum size of a tap or click area | You size controls (WCAG 2.2 AA: 24 by 24 CSS pixels) | expert |
 | Keyboard accessibility | Every function works by keyboard, with visible focus | You spec focus order, focus indicators, and shortcuts | core |
 | Screen reader | Software that reads the interface aloud | You test with assistive technology | core |
@@ -137,14 +137,14 @@ The work of researching how people use a product and designing its structure, be
 | Design critique | Structured feedback session on work in progress | You improve a design with peers | core |
 | Design handoff | Passing specs, assets, and behavior to engineering | You move a design into build | core |
 | Annotations | Notes on behavior, states, and edge cases in a design file | You make intent clear to engineers | core |
-| Design QA | Designer checks the built UI against the design | You review before release | core |
+| Design QA (quality assurance) | Designer checks the built UI against the design | You review before release | core |
 
 ### Content design and UX writing
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
 | Content design | Shaping content from user needs into the right format and place | You plan what content a task needs | core |
-| UX writing | Writing the words inside a product interface | You write labels, buttons, and messages | core |
+| UX (user experience) writing | Writing the words inside a product interface | You write labels, buttons, and messages | core |
 | Microcopy | Short UI text such as labels, hints, and errors | You polish small text that guides action | core |
 | Voice and tone | Fixed brand personality versus feel that shifts with context | You write a content style guide | core |
 | Plain language | Words readers understand on first read | You write for a broad audience | core |
@@ -157,26 +157,26 @@ The work of researching how people use a product and designing its structure, be
 
 | Generic words | Trade words |
 |---|---|
-| talk to users to learn what they need | generative research (semi-structured interviews, contextual inquiry) |
-| see if users can use it | moderated usability test with think-aloud |
-| quick expert check of the design | heuristic evaluation against Nielsen's 10 heuristics |
+| talk to users to learn what they need | generative research (user interviews or contextual inquiry) |
+| see if users can use it | usability testing (moderated or unmoderated) |
+| quick expert check of the design | heuristic evaluation (expert review) |
 | our typical user | research-based persona (proto-persona if from assumptions) |
 | map out what the customer goes through | customer journey map; service blueprint if backstage matters |
-| organize the menu | define the IA, then validate with card sorting and tree testing |
+| organize the menu | information architecture (IA) and navigation design |
 | list of all the pages | sitemap |
 | the steps to do something | user flow |
 | rough sketch of the screen | low-fidelity wireframe |
 | clickable demo | interactive prototype (state the fidelity) |
-| make it easy to use | improve usability: task success, time on task, SUS |
-| don't overwhelm people | reduce cognitive load; use progressive disclosure |
+| make it easy to use | improve usability |
+| don't overwhelm people | reduce cognitive load |
 | make the important stuff stand out | strengthen visual hierarchy |
-| make it look consistent | apply the design system: components and design tokens |
+| make it look consistent | visual consistency (design system or style guide) |
 | reusable colors and sizes | design tokens (semantic tokens for themes) |
-| works on phones too | responsive layout with defined breakpoints, mobile-first |
-| make it accessible | meet WCAG 2.2 AA conformance |
-| text is hard to read | fails contrast ratio (4.5:1 for body text) |
-| buttons too small to tap | below target size minimum |
-| works for blind users | screen reader support: accessible names, alt text, ARIA where needed |
+| works on phones too | responsive layout with defined breakpoints |
+| make it accessible | WCAG conformance at a stated level (often 2.2 AA) |
+| text is hard to read | investigate whether text fails WCAG contrast ratio (4.5:1 for body text), size, or legibility |
+| buttons too small to tap | check target size against WCAG 2.2 (24 by 24 CSS pixels minimum) |
+| works for blind users | screen reader accessibility |
 | what shows when there is nothing | empty state |
 | what shows while it loads | skeleton screen or loading state |
 | the words on the buttons | microcopy and CTA labels |
@@ -209,7 +209,7 @@ The work of researching how people use a product and designing its structure, be
 | UX (used to mean UI) | UX covers research, structure, and behavior, not only visuals | UI design for the visual layer; UX for the whole experience |
 | User testing | Suggests you test the user, not the design | Usability testing |
 | Intuitive | Vague claim with no measure | Learnable, measured by task success or a cognitive walkthrough |
-| ADA compliant (as a design target) | The ADA sets no technical web standard | WCAG 2.2 AA conformance |
+| ADA (Americans with Disabilities Act) compliant (as a design target) (US) | Only the 2024 Title II rule names a standard (WCAG 2.1 AA, state and local government); it is no target for others | WCAG 2.1 AA for Title II entities; WCAG 2.2 AA otherwise |
 | Lorem ipsum in final designs | Hides content problems until build | Real or realistic content (content-first design) |
 | Persona (made from guesses) | Looks like research but is not | Proto-persona, labeled as assumptions |
 | Pixel perfect | Implies fixed layouts in a responsive world | Matches spec within tokens and breakpoints (design QA) |
@@ -242,3 +242,4 @@ The work of researching how people use a product and designing its structure, be
 - Sr Product Designer, Spectrum Design System, Adobe, via Design Project jobs. https://designproject.io/jobs/sr-product-designer-spectrum-design-system-at-adobe-kjvr68 (usage check)
 - Senior Product Designer, Stukent, via Design Project jobs. https://designproject.io/jobs/jobs/senior-product-designer-at-stukent-lel8ux (usage check)
 - Senior Product Designer job listing, Djinni. https://djinni.co/jobs/832623-senior-product-designer/ (usage check)
+- Fact sheet: new rule on the accessibility of web content and mobile apps (ADA Title II), US DOJ. https://www.ada.gov/resources/2024-03-08-web-rule/ (regulator)

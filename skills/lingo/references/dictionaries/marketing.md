@@ -20,7 +20,7 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | STP (segmentation, targeting, positioning) | Split the market, pick segments, then set your place | You plan who to serve and how | core |
 | Market segmentation | Split buyers into groups with shared needs or traits | You size or choose audiences | core |
 | Behavioral segmentation | Group buyers by usage, loyalty, or purchase actions | You target by what people do | core |
-| Psychographic segmentation | Group buyers by values, attitudes, and lifestyle | Demographics do not explain the buying | expert |
+| Psychographic segmentation | Group buyers by values, attitudes, and lifestyle | Demographics do not explain the buying | core |
 | Firmographics | Company traits such as industry, size, and revenue | You segment B2B accounts | core |
 | ICP (ideal customer profile) | The type of company that gets most value from you | You focus B2B targeting and sales | core |
 | Buyer persona | Profile of one typical buyer, their goals and pains | You brief copy or creative | core |
@@ -28,7 +28,7 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Value proposition | The main benefit you promise, and to whom | You write core messaging | core |
 | Positioning statement | One line: for whom, which category, what key difference | You align a team on positioning | core |
 | Competitive alternatives | What buyers would use if your product did not exist | You build positioning from facts | expert |
-| TAM, SAM, SOM (total, serviceable, obtainable market) | Market size from all buyers down to your reachable share | You size a market or a plan | core |
+| TAM, SAM, SOM (total, serviceable, obtainable market) | Market size from total demand down to the share you can win | You size a market or a plan | core |
 | Marketing mix (4Ps) | Product, price, place, and promotion decisions together | You plan a complete offer | core |
 
 ### Brand
@@ -42,7 +42,7 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Distinctive brand assets | Colors, shapes, sounds, or characters linked to one brand | You design ads that people credit to you | expert |
 | Mental availability | How easily buyers think of a brand when they buy | You set brand-building goals | expert |
 | CEP (category entry point) | A need or moment that starts a category purchase | You choose situations for brand ads | expert |
-| Share of voice (SOV) | Your share of all ad presence in a category | You compare spend with rivals | core |
+| Share of voice (SOV) | Your share of category ad spend; state if impressions or mentions | You compare spend with rivals | core |
 | Brand lift | Rise in awareness or recall caused by ads | You measure an upper-funnel campaign | core |
 | Brand and activation split (60/40) | Budget split between long-term brand and short-term sales ads | You set a budget balance | expert |
 
@@ -50,9 +50,9 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
-| ROAS (return on ad spend) | Revenue from ads divided by ad spend | You judge a campaign's efficiency | core |
+| ROAS (return on ad spend) | Ad-attributed revenue divided by ad spend (revenue basis, not profit) | You judge a campaign's efficiency | core |
 | MER (marketing efficiency ratio) | Total revenue divided by total marketing spend | You judge all channels together | core |
-| CAC (customer acquisition cost) | Total spend to win one new customer | You judge growth efficiency | core |
+| CAC (customer acquisition cost) | Sales and marketing spend divided by new customers; state blended or paid | You judge growth efficiency | core |
 | CPA (cost per acquisition) | Ad spend divided by conversions | You set a bid target or limit | core |
 | CPM (cost per mille) | Cost for 1,000 ad impressions | You compare the cost of reach | core |
 | CPC (cost per click) | Average cost paid for one ad click | You judge the cost of traffic | core |
@@ -75,7 +75,7 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Term | Plain meaning | Use it when | Tier |
 |---|---|---|---|
 | SEO (search engine optimization) | Work that earns unpaid rankings in search results | You plan organic traffic | core |
-| Search intent | What the searcher wants: learn, go somewhere, or buy | You match a page to a keyword | core |
+| Search intent | What the searcher wants: learn, find a site, compare, or buy | You match a page to a keyword | core |
 | Keyword research | Find search terms with their volume and difficulty | You plan content or ads | core |
 | Long-tail keyword | Specific search phrase with lower volume | You target easier rankings | core |
 | Topic cluster | Pillar page linked to related detail pages | You plan site structure | expert |
@@ -83,8 +83,8 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Backlinks | Links from other sites to your pages | You plan off-page SEO | core |
 | Technical SEO | Crawl, index, speed, and site structure fixes | You audit a site | core |
 | Core Web Vitals | Google's metrics for page load, response, and stability | You fix page experience | expert |
-| Canonical tag | Tag that names the main version of a page | You handle duplicate pages | expert |
-| E-E-A-T (experience, expertise, authoritativeness, trust) | Quality signals Google looks for in content | You write content on expert topics | expert |
+| Canonical tag | Tag that hints which duplicate page version search engines should index | You handle duplicate pages | expert |
+| E-E-A-T (experience, expertise, authoritativeness, trust) | Quality concept from Google's rater guidelines, not a direct ranking factor | You write content on expert topics | expert |
 | Content gap analysis | Topics rivals rank for that you do not cover | You plan new content | expert |
 | TOFU, MOFU, BOFU (top, middle, bottom of funnel) | Content stages from awareness to purchase | You map content to buyer stage | core |
 
@@ -99,7 +99,7 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Welcome series | Flow sent after someone subscribes | You onboard new subscribers | core |
 | RFM (recency, frequency, monetary) | Scores customers by last purchase, purchase count, and spend | You segment by customer value | expert |
 | Deliverability | Share of email that reaches the inbox | You fix low opens or spam placement | core |
-| SPF, DKIM, DMARC | DNS records that prove you may send for a domain | You set up a sending domain | expert |
+| SPF, DKIM, DMARC (Sender Policy Framework, DomainKeys Identified Mail, Domain-based Message Authentication, Reporting and Conformance) | DNS records that authenticate your domain's mail and set failure handling | You set up a sending domain | expert |
 | Spam complaint rate | Share of recipients who mark mail as spam | You check sender health | expert |
 | Sunset policy | Rule to stop mailing long-inactive subscribers | You protect deliverability | expert |
 | Double opt-in | New subscriber confirms with a second click | You build a clean list | core |
@@ -107,7 +107,7 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Zero-party data | Data customers give you on purpose, like preferences | You personalize from quizzes or surveys | expert |
 | Lead scoring | Points that rank leads by fit and engagement | You route leads to sales | core |
 | MQL (marketing qualified lead) | Lead that marketing rates ready for sales contact | You set handoff rules | core |
-| SQL (sales qualified lead) | Lead that sales accepts as a real opportunity | You measure pipeline | core |
+| SQL (sales qualified lead) | Lead that sales has vetted as a likely real opportunity | You measure pipeline | core |
 | Churn | Customers who stop buying or cancel | You plan retention work | core |
 
 ### Referral and word of mouth
@@ -129,7 +129,7 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 |---|---|---|---|
 | KPI (key performance indicator) | One of the few numbers that show progress to a goal | You set goals or a dashboard | core |
 | Attribution | Giving conversion credit to the touchpoints that came before | You compare channel results | core |
-| Last-click attribution | All credit goes to the final touch | You read default reports | core |
+| Last-click attribution | All credit goes to the final touch | You read reports that credit only the last touch | core |
 | MTA (multi-touch attribution) | Credit split across many touchpoints | You value assisting channels | expert |
 | Data-driven attribution | Credit split by a model trained on conversion paths | You use GA4 or ad platform reports | expert |
 | Attribution window | Days after a click or view that still earn credit | You compare platform numbers | expert |
@@ -140,11 +140,11 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Adstock | Ad effect that carries over and fades over time | You model delayed ad impact | expert |
 | Saturation (diminishing returns) | Each extra dollar brings a smaller result | You find a channel's spend limit | expert |
 | Marginal ROAS (mROAS) | Return on the next dollar, not the average dollar | You decide to scale or cut spend | expert |
-| UTM parameters | URL tags that record source, medium, and campaign | You track links | core |
+| UTM (Urchin Tracking Module) parameters | URL tags that record source, medium, and campaign | You track links | core |
 | Funnel analysis | Conversion rates between steps toward a goal | You find where people drop off | core |
 | Cohort analysis | Compare groups that started in the same period | You track retention over time | core |
 | A/B test | Compare two versions on randomly split traffic | You test one change | core |
-| Statistical significance | Confidence that a test result is not chance | You call a test winner | core |
+| Statistical significance | Result unlikely under the null hypothesis, at a preset alpha threshold | You call a test winner | core |
 
 ### Product marketing and go-to-market
 
@@ -164,30 +164,30 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 
 | Generic words | Trade words |
 |---|---|
-| get more people to buy | lift conversion rate (CVR) |
-| who should we sell to | define the ICP and target segments |
+| get more people to buy | grow conversions (more traffic or a higher CVR) |
+| who should we sell to | target segments (or ICP, in B2B) |
 | what makes us different | positioning and value proposition |
 | how big is the market | TAM, SAM, SOM sizing |
-| make more people know us | build brand awareness and mental availability |
-| are our ads making money | ROAS by campaign, and MER across all spend |
+| make more people know us | brand awareness (or mental availability) |
+| are our ads making money | ad profitability (ROAS against break-even ROAS, or MER) |
 | how much it costs to get a customer | CAC (customer acquisition cost) |
 | show ads to people who visited before | retargeting campaign |
 | find new people like our customers | prospecting with lookalike audiences |
-| see which ad works best | structured creative test with a set decision rule |
-| our ads stopped working | creative fatigue; plan a creative refresh |
-| show up on Google | rank organically for target keywords (SEO) |
-| blog posts that bring visitors | SEO content plan built on topic clusters |
+| see which ad works best | creative testing |
+| our ads stopped working | performance decline (creative fatigue, audience saturation, or tracking loss) |
+| show up on Google | search visibility (organic rankings via SEO, or paid search ads) |
+| blog posts that bring visitors | SEO content that drives organic traffic |
 | emails that send by themselves | triggered flows (lifecycle automation) |
-| our emails go to spam | deliverability issue: check SPF, DKIM, DMARC and complaint rate |
-| people stopped opening our emails | unengaged segment; re-engagement flow, then sunset |
+| our emails go to spam | spam-folder placement (a deliverability issue) |
+| people stopped opening our emails | falling open rate (subscriber disengagement or a deliverability issue) |
 | talk to different customers differently | segmentation and personalization |
-| did the ads really cause the sales | measure incrementality with a lift test |
+| did the ads really cause the sales | incrementality (lift test or MMM) |
 | which channel gets the credit | attribution model and attribution window |
-| where should the budget go | budget allocation from MMM, by marginal ROAS |
-| track where visitors came from | UTM tagging |
-| leads that are ready for sales | MQL to SQL handoff based on lead scoring |
-| plan for launching a new feature | GTM plan with a launch tier |
-| help sales beat a competitor | competitive battlecard |
+| where should the budget go | budget allocation across channels |
+| track where visitors came from | traffic source attribution (UTM tags or referrer data) |
+| leads that are ready for sales | sales-ready leads (MQLs) |
+| plan for launching a new feature | feature launch plan (GTM plan) |
+| help sales beat a competitor | competitive sales enablement (battlecards or objection handling) |
 | customers who stopped buying | churned or lapsed customers |
 | what we say about the product | messaging framework |
 
@@ -207,6 +207,8 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Measurement plan | business goal, KPIs, attribution approach, incrementality tests, tracking (events, UTMs), reporting cadence, owners |
 | Marketing performance report | period, spend, KPIs against target, channel breakdown, insights, next actions |
 | Referral program spec | goal and KPIs (referral share of new customers, K-factor), eligibility, referrer and referee rewards, qualifying event, approval window longer than the return window, referral code or link mechanics, share channels, fraud rules and limits, clawback terms, terms and conditions, tracking and reporting |
+| Content calendar | publish date, channel, format, topic or working title, theme or target keyword, funnel stage, owner, status, CTA, link to brief |
+| Ad and landing page copy set | headlines, primary text or descriptions, CTAs, character limits per placement, landing page headline and subhead, benefit sections, proof (reviews, logos), FAQ, test variants, UTM links |
 
 ## Misused or dated terms
 
@@ -216,7 +218,7 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 | Impressions (for people reached) | Impressions count views, not unique people | Reach, plus frequency |
 | Open rate (as the main email KPI) | Mail privacy features inflate opens | Click rate, conversion rate, revenue per recipient |
 | Last-click ROAS (as true impact) | It over-credits bottom-funnel channels | Incrementality from lift tests or MMM |
-| Bounce rate (in GA4) | GA4 defines it as the inverse of engaged sessions | Engagement rate |
+| Bounce rate (compared across UA and GA4) | GA4 counts non-engaged sessions; UA counted single-page sessions | Engagement rate, or name the GA4 definition |
 | Third-party cookie targeting | Browsers and privacy rules limit it | First-party data and contextual targeting |
 | Go viral | Names a hope, not a plan or a metric | Share rate, earned reach |
 
@@ -232,6 +234,9 @@ Marketing covers how a business picks its buyers, builds its brand, and wins and
 - Analyst's guide to MMM, Robyn (Meta open source). https://facebookexperimental.github.io/Robyn/docs/analysts-guide-to-MMM/ (tool docs)
 - Glossary, Klaviyo. https://www.klaviyo.com/glossary (tool docs)
 - SEO glossary, Ahrefs. https://ahrefs.com/seo/glossary (tool docs)
+- How to specify a canonical URL with rel="canonical" and other methods, Google Search Central. https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls (tool docs)
+- [GA4] Engagement rate and bounce rate, Google Analytics Help. https://support.google.com/analytics/answer/12195621 (tool docs)
+- Keyword intent, Semrush. https://www.semrush.com/blog/keyword-intent/ (search result)
 - Identifying and prioritising category entry points, Ehrenberg-Bass Institute. https://marketingscience.info/research-services/identifying-and-prioritising-category-entry-points/ (practitioner research)
 - Mental availability, brand rejection, Binet and Field ESOV, and Ehrenberg-Bass B2B data, Mi3. https://www.mi-3.com.au/28-03-2022/mental-availability-brand-rejection-binet-field-esov-and-ehrenberg-bass-new-b2b-data (practitioner writing)
 - April Dunford's positioning template, Miro. https://miro.com/templates/april-dunfords-positioning-template/ (practitioner writing)
