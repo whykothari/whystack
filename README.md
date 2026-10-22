@@ -63,7 +63,7 @@ whystack/
   bin/whystack      sync, status, log, link
   agents/           one source for Claude Code and Codex
     AGENTS.md       my global agent rules
-    claude/         CLAUDE.md, settings.json (only the keys I set)
+    claude/         CLAUDE.md, statusline.sh, settings.json (only the keys I set)
     codex/          config.toml (only the keys I set)
     skills/         core/ improve/ research/ design/
     styles/         output styles

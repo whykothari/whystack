@@ -1,7 +1,8 @@
 #!/bin/bash
 {{- $p := index .profiles .profile }}
-# chezmoi runs this again when the profile, a skill, or a style changes:
+# chezmoi runs this again when the profile, a skill, a style, or the link script changes:
 # {{ .profile }}
+# {{ joinPath .chezmoi.workingTree "bin/whystack" | include | sha256sum }}
 {{- range $p.packs }}
 # {{ . }}: {{ joinPath $.chezmoi.workingTree "agents/skills" . "*" | glob | join " " }}
 {{- end }}

@@ -78,6 +78,10 @@
   },
   "skipAutoPermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
+  "statusLine": {
+    "command": "bash ~/.claude/statusline.sh",
+    "type": "command"
+  },
   "theme": "auto",
   "tui": "fullscreen",
   "verbose": false,

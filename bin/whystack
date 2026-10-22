@@ -97,7 +97,11 @@ cmd_link() {
 			add "$skill" "$HOME/.claude/skills/$name"
 		done
 	done
-	[ "$MODE" = link ] && add "$REPO/bin/whystack" "$HOME/.local/bin/whystack"
+	# Guest gets no Claude prefs, so nothing would run the status line there.
+	if [ "$MODE" = link ]; then
+		add "$REPO/agents/claude/statusline.sh" "$HOME/.claude/statusline.sh"
+		add "$REPO/bin/whystack" "$HOME/.local/bin/whystack"
+	fi
 
 	# Remove links that whystack made before but no longer wants, and broken links.
 	local dir entry target
