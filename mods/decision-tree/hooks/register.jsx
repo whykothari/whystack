@@ -26,7 +26,7 @@ let path = []
 let view = 'node'
 // Where the session transcripts live, from the Stop hook
 let transcriptPath = ''
-// Set at each session.start; true for -p / SDK sessions, where the pane is never drawn
+// True while no surface can draw the pane: a -p run, or an SDK session before its app attaches
 let headless = false
 
 // Cheap check, no model: does the end of the reply ask something?
@@ -258,16 +258,27 @@ function parseJson(text) {
   }
 }
 
+async function setUp($) {
+  headless = false
+  await $.command.register({
+    name: 'explain',
+    description: 'Show the decision tree. A to H tries an option. other <answer> tries your own.',
+    argumentHint: '[A-H | other <answer> | map | back | top | continue]',
+    immediate: true,
+  })
+}
+
 export function register(on, options) {
+  // The desktop app starts an SDK session (isInteractive false) and attaches its surface
+  // later, so a session with no surface yet waits for session.attach.
   on('session.start', async ($, e, next) => {
-    headless = e.isInteractive === false
-    if (headless) return next(e)
-    await $.command.register({
-      name: 'explain',
-      description: 'Show the decision tree. A to H tries an option. other <answer> tries your own.',
-      argumentHint: '[A-H | other <answer> | map | back | top | continue]',
-      immediate: true,
-    })
+    headless = e.isInteractive === false && (await $.session.surfaces()).length === 0
+    if (!headless) await setUp($)
+    return next(e)
+  })
+
+  on('session.attach', async ($, e, next) => {
+    if (headless) await setUp($)
     return next(e)
   })
 

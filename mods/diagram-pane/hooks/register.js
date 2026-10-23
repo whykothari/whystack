@@ -21,7 +21,7 @@ const TOOL_GET = 'mcp__diagram-pane__diagram_get'
 const TOOL_SET = 'mcp__diagram-pane__diagram_set'
 const HOME = { root: 'map', path: [] }
 const NOTE = 'The map is drawn after a few turns, or now with /diagram'
-// Set at each session.start; true for -p / SDK sessions
+// True while no surface can draw the pane: a -p run, or an SDK session before its app attaches
 let headless = false
 
 // Everything the pane shows. Pins are rebuilt from the transcript; the map, the
@@ -62,30 +62,40 @@ function startSession(id) {
   return changed
 }
 
+async function setUp($) {
+  headless = false
+  // Open the pane right away. Unasked, it is placed on a wide terminal (144+ columns);
+  // /diagram opens it at any width.
+  await $.ui.open({ id: PANE, title: 'Diagrams' })
+  try {
+    await $.command.register({ name: 'diagram', description: 'Redraw the live work map in the diagram pane', argumentHint: '[force|open]' })
+  } catch (err) {
+    $.ui.log('could not add /diagram: ' + err.message)
+  }
+  for (const tool of TOOLS) {
+    try {
+      await $.tool.register(tool)
+    } catch (err) {
+      $.ui.log(`could not add ${tool.name}: ` + err.message)
+    }
+  }
+}
+
 export function register(on, options) {
   const every = Number(options?.everyTurns) || 3
   S.every = every
   S.maxPins = Number(options?.maxPins) || 5
 
+  // The desktop app starts an SDK session (isInteractive false) and attaches its surface
+  // later, so a session with no surface yet waits for session.attach.
   on('session.start', async ($, e, next) => {
-    // Set at each session.start. In -p / SDK sessions there is no pane to draw into
-    headless = e.isInteractive === false
-    if (headless) return next(e)
-    // Open the pane right away. Unasked, it is placed on a wide terminal (144+ columns);
-    // /diagram opens it at any width.
-    await $.ui.open({ id: PANE, title: 'Diagrams' })
-    try {
-      await $.command.register({ name: 'diagram', description: 'Redraw the live work map in the diagram pane', argumentHint: '[force|open]' })
-    } catch (err) {
-      $.ui.log('could not add /diagram: ' + err.message)
-    }
-    for (const tool of TOOLS) {
-      try {
-        await $.tool.register(tool)
-      } catch (err) {
-        $.ui.log(`could not add ${tool.name}: ` + err.message)
-      }
-    }
+    headless = e.isInteractive === false && (await $.session.surfaces()).length === 0
+    if (!headless) await setUp($)
+    return next(e)
+  })
+
+  on('session.attach', async ($, e, next) => {
+    if (headless) await setUp($)
     return next(e)
   })
 
