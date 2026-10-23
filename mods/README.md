@@ -11,7 +11,7 @@ My mods for Claude Code. Each folder is one plugin. The file `.claude-plugin/mar
 | [decision-tree](decision-tree) | When Claude asks you to choose, a side pane explains the choice, recommendation first, and lets you try each option in a forked session. |
 | [diagram-pane](diagram-pane) | A side pane that keeps every diagram Claude draws and a live map of the work. |
 | [filetree](filetree) | A file tree pane with git status and lines changed. Files Claude reads, writes or commits shimmer. |
-| [helper-desk](helper-desk) | A task bar that fills as Claude's to-do list is done, and a Helpers pane with one card per subagent. |
+| [helper-desk](helper-desk) | A task bar that fills as Claude's to-do list is done, and a Helpers pane with one card per subagent or Codex run. |
 | [replay-theater](replay-theater) | `/replay` steps through the file edits Claude made in the last turn, one diff at a time. |
 
 ## Install

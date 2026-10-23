@@ -17,6 +17,23 @@ export type Helper = {
   lastTool?: string
   todoDone?: number
   todoTotal?: number
+  codexJobId?: string
+  phase?: string
+  summary?: string
+}
+
+// A job as the Codex plugin writes it in its state.json.
+export type CodexJob = {
+  id: string
+  kind: string
+  title?: string
+  status: string
+  phase?: string | null
+  summary?: string | null
+  sessionId?: string
+  createdAt?: string
+  startedAt?: string
+  completedAt?: string
 }
 
 declare module 'claude-code' {

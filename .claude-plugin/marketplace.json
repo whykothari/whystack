@@ -39,7 +39,7 @@
     {
       "name": "helper-desk",
       "source": "./mods/helper-desk",
-      "description": "A task bar above the prompt that fills as Claude's to-do list is done, and a Helpers pane with one live card per subagent (/helpers)."
+      "description": "A task bar above the prompt that fills as Claude's to-do list is done, and a Helpers pane with one live card per subagent or Codex run (/helpers)."
     },
     {
       "name": "decision-tree",

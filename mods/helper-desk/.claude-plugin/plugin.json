@@ -1,7 +1,7 @@
 {
   "name": "helper-desk",
-  "version": "0.1.0",
-  "description": "A task bar above the prompt that fills as Claude's to-do list is done, and a Helpers pane with one live card per subagent (/helpers).",
+  "version": "0.2.0",
+  "description": "A task bar above the prompt that fills as Claude's to-do list is done, and a Helpers pane with one live card per subagent or Codex run (/helpers).",
   "author": {
     "name": "Yash Kothari"
   },

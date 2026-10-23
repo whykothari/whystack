@@ -4,6 +4,7 @@ A Claude Code mod that shows how far Claude is with its to-do list and what each
 
 - **Task bar**: above the prompt, a bar fills as Claude marks items done on its to-do list. It shows the count, such as `3/5`, and the item in progress. When all items are done, the bar goes away at the end of the turn.
 - **Helpers pane**: one card per subagent, with its task, type, model, time, tool calls and its last tool. When the subagent keeps its own to-do list, the card shows a progress bar for it. The pane opens when the first subagent starts. `/helpers` shows or hides it. After you close it, it stays closed until you run `/helpers`.
+- **Codex cards**: one card per Codex run that this session starts, with Codex's phase, time and, at the end, its summary. It covers the [Codex plugin](https://github.com/openai/codex-plugin-cc) jobs (`/codex:rescue`, `/codex:review`, background jobs) and each `codex exec` call in the foreground. The codex-rescue subagent and the job it starts share one card.
 
 The **Helpers** button on the task bar opens the pane while subagents run.
 

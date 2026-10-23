@@ -2,9 +2,10 @@ import { atom, read, update } from 'claude-code'
 import type { EngineInterface, Register } from 'claude-code'
 
 import type { Helper, Task } from '../types'
+import { readCodexJobs, runsCodexExec, runsCodexPlugin, withCodexJobs } from './codex'
 
 // The band above the prompt follows the main to-do list. The pane has one
-// card per subagent ("helper"), live while it runs.
+// card per subagent or Codex run ("helper"), live while it runs.
 
 const PANE = 'helper-desk'
 const COMMAND = 'helpers'
@@ -18,6 +19,10 @@ const now = atom({ plugin: 'helper-desk', key: 'now' } as const, 0)
 let isPaneOpen = false
 // After the person closes the pane, a new helper doesn't open it again.
 let isPaneDismissed = false
+let sessionId = ''
+// Codex jobs run on after the Bash call that starts them, so the clock reads
+// the job list while one runs.
+let isWatchingCodex = false
 
 function bar(done: number, total: number, width = BAR): string {
   const full = total === 0 ? 0 : Math.round((done / total) * width)
@@ -34,13 +39,25 @@ async function openPane($: EngineInterface) {
   isPaneOpen = opened.isPlaced
 }
 
+async function syncCodex($: EngineInterface) {
+  const jobs = await readCodexJobs($, sessionId)
+  isWatchingCodex = jobs.some(j => j.status === 'queued' || j.status === 'running')
+  const before = (await read($, helpers)).length
+  await update($, helpers, all => withCodexJobs(all, jobs))
+  if ((await read($, helpers)).length > before && !isPaneOpen && !isPaneDismissed) await openPane($)
+}
+
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const started = await next(e)
-    await $.command.register({ name: COMMAND, description: 'Show or hide the Helpers pane: one card per subagent' })
+    await $.command.register({ name: COMMAND, description: 'Show or hide the Helpers pane: one card per subagent or Codex run' })
+    sessionId = await $.session.id()
+    // A reload loses the module's variables, and a Codex job may still run.
+    await syncCodex($)
     // Moves the running helpers' clocks; quiet when none runs.
     $.clock.every(1000, () => {
       void (async () => {
+        if (isWatchingCodex) await syncCodex($)
         if (!(await read($, helpers)).some(h => h.status === 'running')) return
         const at = await $.clock.now()
         await update($, now, () => at)
@@ -86,7 +103,27 @@ export const register: Register = on => {
         all.map(h => (h.agentId === e.agentId ? { ...h, tools: h.tools + 1, lastTool: tool } : h)),
       )
     }
-    return next(e)
+    if (e.tool !== 'Bash') return next(e)
+    if (runsCodexPlugin(e.command)) {
+      isWatchingCodex = true
+      const result = await next(e)
+      await syncCodex($)
+      return result
+    }
+    // A background run returns at once and leaves no job to follow.
+    if (!runsCodexExec(e.command) || e.run_in_background) return next(e)
+    const id = `exec:${e.tool_use_id}`
+    const startedAt = await $.clock.now()
+    const card: Helper = { id, description: 'codex exec', type: 'Codex · exec', model: '', status: 'running', startedAt, tools: 0 }
+    await update($, helpers, all => [...all, card].slice(-50))
+    await update($, now, () => startedAt)
+    if (!isPaneOpen && !isPaneDismissed) await openPane($)
+    const result = await next(e)
+    const endedAt = await $.clock.now()
+    const status = result.deny === undefined && !result.isError ? 'done' : 'failed'
+    await update($, helpers, all => all.map(h => (h.id === id ? { ...h, status, endedAt } : h)))
+    await update($, now, () => endedAt)
+    return result
   })
 
   on('agent.spawn', async ($, e, next) => {
@@ -156,32 +193,33 @@ export const register: Register = on => {
     const width = Math.max(8, Math.min(BAR, e.props.bodyColumns - 20))
 
     if (shown.length === 0) {
-      return <Text dimColor>No helpers yet. Subagents show here while they work.</Text>
+      return <Text dimColor>No helpers yet. Subagents and Codex runs show here while they work.</Text>
     }
 
     return (
       <Box flexDirection="column" gap={1}>
-        {shown.map(h => {
-          const color = h.status === 'running' ? 'magenta' : h.status === 'done' ? 'green' : 'red'
-          const mark = h.status === 'running' ? '●' : h.status === 'done' ? '✓' : '✗'
-          const elapsed = clock((h.endedAt ?? Math.max(at, h.startedAt)) - h.startedAt)
+        {shown.map(helper => {
+          const color = helper.status === 'running' ? 'magenta' : helper.status === 'done' ? 'green' : 'red'
+          const mark = helper.status === 'running' ? '●' : helper.status === 'done' ? '✓' : '✗'
+          const elapsed = clock((helper.endedAt ?? Math.max(at, helper.startedAt)) - helper.startedAt)
           const progress =
-            h.todoTotal !== undefined
-              ? `${bar(h.todoDone ?? 0, h.todoTotal, width)} ${h.todoDone ?? 0}/${h.todoTotal}`
-              : h.status === 'running'
-                ? 'working'
-                : bar(1, 1, width)
+            helper.todoTotal !== undefined
+              ? `${bar(helper.todoDone ?? 0, helper.todoTotal, width)} ${helper.todoDone ?? 0}/${helper.todoTotal}`
+              : helper.status === 'running'
+                ? helper.phase ?? 'working'
+                : (helper.summary ?? bar(1, 1, width))
+          const activity = helper.codexJobId
+            ? `Codex ${helper.phase ?? helper.status} · ${elapsed}`
+            : `${helper.tools} tool calls · ${elapsed}${helper.lastTool && helper.status === 'running' ? ` · ${helper.lastTool}` : ''}`
           return (
-            <Box key={h.id} flexDirection="column" borderStyle="round" borderColor={color} paddingX={1}>
+            <Box key={helper.id} flexDirection="column" borderStyle="round" borderColor={color} paddingX={1}>
               <Text bold wrap="truncate-end">
                 <Text color={color}>{mark} </Text>
-                {h.description || h.type}
+                {helper.description || helper.type}
               </Text>
-              <Text dimColor wrap="truncate-end">{h.type} · {h.model}</Text>
-              <Text color={color}>{progress}</Text>
-              <Text dimColor wrap="truncate-end">
-                {h.tools} tool calls · {elapsed}{h.lastTool && h.status === 'running' ? ` · ${h.lastTool}` : ''}
-              </Text>
+              <Text dimColor wrap="truncate-end">{[helper.type, helper.model].filter(Boolean).join(' · ')}</Text>
+              <Text color={color} wrap="truncate-end">{progress}</Text>
+              <Text dimColor wrap="truncate-end">{activity}</Text>
             </Box>
           )
         })}
