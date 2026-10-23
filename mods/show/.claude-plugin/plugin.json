@@ -1,0 +1,24 @@
+{
+  "name": "show",
+  "version": "0.1.0",
+  "description": "/show redraws Claude's last reply as big cards in the transcript: done, open, next.",
+  "author": {
+    "name": "Yash Kothari"
+  },
+  "keywords": [
+    "mods",
+    "cards",
+    "summary"
+  ],
+  "types": "./types/index.d.ts",
+  "repository": "https://github.com/whykothari/whystack",
+  "license": "MIT",
+  "userConfig": {
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "description": "The small model that sorts a reply into cards.",
+      "default": "haiku"
+    }
+  }
+}
